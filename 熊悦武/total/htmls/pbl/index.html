@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="邹智敏">
+  <meta name="Keywords" content="邹智敏的瀑布流插件">
+  <meta name="Description" content="一个自适应的瀑布流插件，非常流弊，只需要引入pbl.js插件">
+  <title>瀑布流</title>
+  <style type="text/css">
+  	body{position: relative;}
+  	.a{background:red;color:#fff;text-decoration:none;padding:10px;border-radius:5px;box-shadow:0 0 10px #000;right:10px;top:10px;position:fixed;z-index:20;}
+  	#add{margin-right: 100px;}
+  	.s_content{width: 100%;height: 100%;background:rgba(0,0,0,0.5);color:#fff;position: fixed;z-index:19;text-indent:2em;left:0;right:0;top:0;bottom:0;margin: auto;overflow: auto;border-radius: 5px;display: none;}
+	.show{width:100%;height:100%;background:rgba(0,0,0,0.5);position:fixed;z-index:10;left:0;top:0;display:none;}
+	.show .imgview{width:800px;height:350px;box-shadow:0 0 10px #000;background:#fff;margin:150px auto;border-radius:5px;text-align:center;line-height:30px;position:relative;}
+	.show .imgview .cuo{width:25px;height:25px;color:#666;text-align:center;line-height:25px;position:absolute;right:10px;bottom:10px;border:2px solid #666;border-radius:50%;}
+	.show .imgview .cuo:hover{border-color:#000;color:#000;cursor:pointer;}
+  </style>
+ </head>
+ <body>
+ 	<a href="javascript:void(0);" class="a" id="add">添加图片</a>
+ 	<a href="javascript:void(0);" class="a" id="showcontent">打开文档</a>
+ 	<div class="s_content">
+ 		<p>首先要引入jquery建议版本是jquery-1.12.2.min.js;因为原生开发版本就是这个版本</p>
+ 		<p>在引入我分装的<a href="js/pbl.js" target="_blank">pbl.js</a></p>
+		<p>//下面是需要根据自己的需求来配置瀑布流基本信息</p>
+		<p>var opts = {</p>
+		<p>		imgName : [1,2,3,4,5,6,7,8],//图片名字</p>
+		<p>		arrHeight : [100,200,180,110,130,150],//装载图片容器的高度</p>
+		<p>		width : 110,//装载图片容器的宽度</p>
+		<p>		space : 5,//装载图片容器两两之间的间距</p>
+		<p>		margin : 5,//图片与所在容器间的间距</p>
+		<p>		id:"#container",//父级容器</p>
+		<p>		background:"#000",//装载容器的背景颜色，默认为白色</p>
+		<p>		ID:"add",//查看图片的id选择器</p>
+		<p>}</p>
+		<p>zzmpbl(opts);//启动瀑布流</p>
+
+ 	</div>
+	<div id="container"></div> 
+	<div class="show"><div class="imgview"></div></div>
+	<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+	<script type="text/javascript" src="js/pbl.js"></script>
+	<script type="text/javascript">
+			$(function(){
+					//配置瀑布流基本信息
+					var opts = {
+							imgName : [1,2,3,4,5,6,7,8],//图片名字
+							arrHeight : [100,200,150,200,130,140],//装载图片容器的高度
+							width : 110,//装载图片容器的宽度
+							space : 5,//装载图片容器两两之间的间距
+							margin : 5,//图片与所在容器间的间距
+							id:"#container",//父级容器
+							//background:"#666",//装载容器的背景颜色，默认为白色
+							ID:"add",//查看图片的id选择器
+					}
+					zzmpbl(opts);//启动瀑布流
+					//显示图片弹窗
+					$("body").on("click","#showview",function(){
+						$(".show").fadeIn(200);
+						var src = $(this).find("img").attr("src");
+						var desiption = $(this).find("img").attr("alt");
+						$(".show .imgview").empty();
+						$(".show .imgview").append("<div class='cuo'>✖</div>"+
+																	"<img src="+src+" width='400' height='300' alt='图片描述'/>"+
+																	"<span style='display:block;font-weight:bold;'>"+desiption+"</span>");
+						totalimg();
+					});
+					//关闭图片弹窗
+					$("body").on("click",".show .imgview .cuo",function(){
+						$(".show").hide(200);
+					});
+					$("body").on("click",".show",function(){
+						$(".show").hide(200);
+					});
+					//打开说明文档
+					var i = 1;
+					$("#showcontent").on("click",function(){
+						if(i == 1)
+						{
+							$(this).empty().append("关闭文档");
+							$(".s_content").fadeIn(200);
+							i = 2;
+						}else{
+							$(this).empty().append("打开文档");
+							$(".s_content").fadeOut(200);
+							i = 1;
+						}
+					});
+					
+			});
+	</script>
+ </body>
+</html>

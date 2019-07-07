@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>test</title>
+		<link rel="stylesheet" type="text/css" href="../xwhtml/css/add.css">
+		<link rel="stylesheet" type="text/css" href="../xwhtml/dist/css/wangEditor.css">
+	</head>
+	<body>
+		<div class="bg"></div>
+		<!--start tianjia-->
+		<div class="tianjia">
+			<!--start 标题-->
+			<div class="t_tilte">
+				<p class="p p_title"><label>添加合作伙伴</label></p>
+				<div class="mymusic" title="编写累了,记得点击我哦^_^!!">
+					<i class="icon_music"></i>
+					<audio id="musics" src="../xwhtml/mp3/Joshua Hyslop-let it go.mp3" loop="loop">
+						您的浏览器不支持audio，请您升级自己的浏览器！！
+					</audio>
+				</div>
+			</div>
+			<!--end 标题-->
+			
+			<!--start 输入框-->
+			<div class="t_inputs">
+				<p class="p p_title">
+					<label>公司名称：</label>
+					<input type="text" name="xwtitle" placeholder="请输入公司名称...."/>
+				</p>
+				<p class="p p_title">
+					<label>伙伴姓名：</label>
+					<input type="text" name="xwauthor" placeholder="请输入您的姓名...."/>
+				</p>
+				<p class="p p_title">
+					<label>公司类型：</label>
+					<select class="p_select">
+						<option value="it">IT</option>
+						<option value="jr">金融</option>
+						<option value="yh">银行</option>
+						<option value="fdc">房地产</option>
+						<option value="ylq">娱乐圈</option>
+						<option value="wl">物流</option>
+						<option value="yy">医院</option>
+					</select>
+				</p>
+				<p class="p p_title">
+					<label>合作时间：</label>
+					<input type="date" name="xwtime" placeholder="请输入合作开始时间...."/>
+				</p>
+				<p class="p p_title">
+					<label>电子邮件：</label>
+					<input type="text" name="xwauthor" placeholder="请输入您的电子邮件或公司公用邮件. . . . ."/>
+				</p>
+				<p class="p p_title">
+					<label>电话号码：</label>
+					<input type="text" name="xwauthor" placeholder="请输入您的电话号码或公司公用座机. . . . ."/>
+				</p>
+			</div>
+			<!--end 输入框-->
+				
+			<!-- start 富文本编辑器 -->
+			<style type="text/css">
+				.tianjia .xwedit #myedio{height:200px;}
+			</style>
+			<div class="xwedit">
+				<div class="e_title">编辑合作所需的协议内容：</div>
+				<div id="myedio"></div>
+			</div>
+			<!--end 富文本编辑器 -->
+
+			<!--start 按钮-->
+			<div class="btns">
+				<a href="javascript:void();">保存</a>
+				<a href="../news_manage_hz.html">取消</a>
+			</div>
+		</div>
+		<!--end tianjia-->
+<!--引入jquery和wangEditor.js-->   <!--注意：javascript必须放在body最后，否则可能会出现问题-->
+<script type="text/javascript" src="../xwhtml/dist/js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../xwhtml/dist/js/wangEditor.js"></script>
+<script type="text/javascript">
+    $(function(){
+    	var editor = new wangEditor('myedio');
+	    // 上传图片
+		editor.config.uploadImgUrl = '/upload';
+		// 表情显示项
+		//editor.config.emotionsShow = 'value';
+		//创建编辑器
+		editor.create();
+		
+		//页面一加载就播放页面
+    	$("#musics").get(0).play();
+    	//页面一加载，音乐按钮就旋转
+		$(".icon_music").addClass("key");
+		//点击音乐事件
+		$(".icon_music").on("click",function(){
+			musickey();
+		});
+    });
+    	//编辑音乐播放器的播放和暂停
+	function musickey(){
+		var audio = document.getElementById('musics'); 
+	     if(audio.paused){
+	     	//audio.play();// 播放  
+	     	$(".icon_music").addClass("key");               
+	        audio.play(); 
+	     }else{
+	     	// 暂停
+	     	$(".icon_music").removeClass("key");
+	        audio.pause();
+	          
+	     } 
+	}
+</script>
+	</body>
+</html>

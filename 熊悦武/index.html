@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+	<meta name="renderer" content="webkit">
+	<link rel="icon" href="layui/images/img/zou.ico">
+	<title>熊悦武的个人网站</title>
+	<link rel="stylesheet" href="layui/css/layui.css"/>
+	<link rel="stylesheet" href="layui/css/resume.css"/>
+</head>
+<body>
+	<!--start 导航栏-->
+	<div class="layui-header" style="background: #393d49;">
+        <div class="layui-logo">
+        	<a href="#">
+                <img lay-src="layui/images/img/log.png" width="350" height="40px" style="margin-top: 10px;"/>
+            </a>
+        </div>
+        <ul class="layui-nav layui-layout-right kit-nav">
+        	<li class="layui-nav-item">
+                <a href="javascript:;">WebSite作品</a>
+                    <dl class="layui-nav-child">
+                      <dd><a href="htmls/baiduhuanfu/index.html" target="_blank">百度换肤</a></dd>
+                      <dd><a href="htmls/pbl.html" target="_blank">瀑布流</a></dd>
+                      <dd><a href="htmls/eleme.html" target="_blank">地图购物</a></dd>
+                      <dd><a href="htmls/music.html" target="_blank">音乐播放器</a></dd>
+                    </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">Service作品</a>
+                    <dl class="layui-nav-child">
+                      <dd><a href="#" id="IM">IM人工智能对聊机器人</a></dd>
+                      <dd><a href="htmls/Qrcode.html" target="_blank" >在线生成二维码</a></dd>
+                      <dd><a href="htmls/face.html" target="_blank">在线人脸识别</a></dd>
+                      <dd><a href="htmls/speech.html" target="_blank">在线语音合成</a></dd>
+                      <dd><a href="htmls/video.html" target="_blank">在线抓取第三方视屏</a></dd>
+                      <dd><a href="htmls/chart.html" target="_blank">抓取拉钩网数据生成统计报表</a></dd>
+                    </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">代码工具</a>
+                    <dl class="layui-nav-child">
+                      <dd><a href="htmls/css.html" target="_blank">css转换</a></dd>
+                      <dd><a href="htmls/szd.html" target="_blank">双引号转单引号</a></dd>
+                    </dl>
+            </li>
+            <li class="layui-nav-item" id="grjl"><a href="javascript:#;">个人简历</a></li>
+            <li class="layui-nav-item" id="lxfs"><a href="javascript:#;" id="pay">联系方式</a></li>
+            <li class="layui-nav-item">
+                <a href="#">
+                    <img lay-src="layui/images/img/music.png" class="layui-nav-img icon_music"/>
+                    <audio src="layui/mp3/1.mp3" autoplay=true loop="true" id="audio"></audio>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--end 导航栏-->
+    
+    <!-- start 轮播图-->
+	<div class="layui-carousel" id="lunbotu" lay-filter="lunboid">
+	  <div carousel-item class="divs">
+	    <div>
+	    	<canvas id="canvas-banner" style="background: #393D49;display: block;width: 100%;height: 100%;"></canvas>
+	    </div>
+	   </div>
+	</div>
+	<!-- end 轮播图-->
+ 	
+	<!-- start 图片展示区域-->
+	<div class="layui-container zp">
+	    <div class="layui-row layui-col-space10">
+	    	<div class="layui-col-md4 layui-anim layui-anim-scale">
+      			<div title="新闻发布系统">
+		      		<img lay-src="layui/images/img/news.png" alt="新闻发布系统" width="100%" height="80%" />
+		      		<span>前端作品：新闻发布系统</span>
+		      		<a href="news/index.html" target="_blank" class="layui-btn layui-btn-primary layui-btn-big"><i class="layui-icon">&#xe609;</i> 点击浏览</a>
+		      	</div>
+	    	</div>
+	    	<div class="layui-col-md4 layui-anim layui-anim-scale">
+		      	<div title="个人笔记">
+		      		<img lay-src="layui/images/img/xxbj.png" alt="新闻发布系统" width="100%" height="80%" />
+		      		<span>前端作品：个人笔记</span>
+		      		<a href="bolg/index.html" target="_blank" class="layui-btn layui-btn-primary layui-btn-big"><i class="layui-icon">&#xe705;</i> 点击浏览</a>
+		      	</div>
+		    </div>
+		    <div class="layui-col-md4 layui-anim layui-anim-scale">
+		      	<div title="前端汇总">
+		      		<img lay-src="layui/images/img/total.png" alt="新闻发布系统" width="100%" height="80%" />
+		      		<span>前端作品：前端汇总</span>
+		      		<a href="total/index.html" target="_blank" class="layui-btn layui-btn-primary layui-btn-big"><i class="layui-icon">&#xe68e;</i> 点击浏览</a>
+		      	</div>
+		    </div>
+		</div>
+	</div> 	
+	<!-- end 图片展示区域-->
+	
+	<!-- start 个人简历 -->
+	<fieldset class="layui-elem-field layui-field-title" id="grjldiv">
+	  <legend>个人简历</legend>
+	</fieldset>
+	<div class="layui-container">
+	    <div class="layui-row layui-col-space20">
+	    	<div class="layui-col-md6 layui-anim layui-anim-fadein">
+	    		<canvas id="chart"></canvas>
+		    </div>
+		    <div class="layui-col-md3">
+		    	<ul class="layui-timeline">
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">姓名：熊悦武</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">性别：男</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">年龄：22</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">项目经验：1.5年</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">学历：大专</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">期望薪资：4K+</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">应聘职位：javaweb 软件开发工程师</div>
+				    </div>
+				  </li>
+				</ul>
+		    </div>
+		    <div class="layui-col-md3">
+		    	<img id="tx" lay-src="layui/images/img/toxiang.jpg" width="100" height="100" alt="头像"/>
+		    	<p>自我评价：</p>
+		    	<p>
+		    		本人性格稳重、爱学习新东西；在项目教学中担任过“开发组长”，开发过的项目有：系统运行辅助管理系统、新闻发布系统，开发中所用到的技术点：
+		    		前台：html、css、js、JQuery,以及一些流行的前端框架；
+		    		后台：javase、javase、spring、springmvc、mybatis、shiro；
+		    		数据库：mysql5.7；项目中用maven管理 jar；在这个物联网时代，本人时时刻刻都在追求最新的技术；所以现在打算开始学习大数据；
+		    	</p>
+		    </div>
+		</div>
+	</div> 
+	<!-- end 个人简历 -->
+	
+	<!-- start 联系方式 -->
+	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;" id="lxfsdiv">
+	  <legend>联系方式</legend>
+	</fieldset>
+	<div class="layui-container">
+	    <div class="layui-row">
+	    	<div class="layui-col-md3 layui-anim layui-anim-scaleSpring">
+				<div class="img"><img lay-src="layui/images/img/qq.jpg" width="250" height="250"></div>				    		
+	    	</div>
+	    	<div class="layui-col-md3 layui-anim layui-anim-scaleSpring">
+		    	<div class="img"><img lay-src="layui/images/img/weixin.png" width="250" height="250"></div>	
+	    	</div>
+		    
+		    <div class="layui-col-md3 layui-anim layui-anim-scaleSpring">
+		    	<div class="img">
+		    		<i class="layui-icon" style="font-size: 100px; color: #393d49;display:inline-block;margin-top:50px;">&#xe63b;</i>
+		    		<br><span>137-6628-3113 </span>
+		    	</div>
+		    </div>
+		    <div class="layui-col-md3 layui-anim layui-anim-scaleSpring">
+		    	<div class="img">
+		    		<img src="layui/images/img/emil.jpg" width="150" height="150" style="margin-top: 40px;"/>
+		    		<span style="font-size: 24px;">1596762965@qq.com</span>
+		    	</div>	
+		    </div>
+		</div>
+	</div>
+	<!-- end 联系方式 -->
+	
+	<!-- start 地图 -->
+	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;" id="lxfsdiv">
+	  <legend>现居地址</legend>
+	</fieldset>
+    <div id="container"></div>
+    <!-- end 地图 -->
+    
+    <!-- start 页脚-->
+	<footer class="" style="margin:10px;text-align: center;">
+	    <span>Copyright ©  Copyright 2017 All Rights Reserved by zouzhimin.com</span>
+	  <span>本站所有作品仅为熊悦武个人展示用途，请勿商业使用</span> 
+	</footer>
+	<!-- end 页脚-->
+	
+</body>
+</html>
+<script type="text/javascript" src="layui/layui.js" ></script>
+<script type="text/javascript" src="layui/canvas-particle.js" ></script>
+<script type="text/javascript" src="layui/resume.js"></script>
+<script src="layui/charts/Chart.js"></script>
+</script><script type="text/javascript">
+Chart.defaults.global.defaultFontColor = '#000';//设置全局的字体颜色
+new Chart(document.getElementById("chart"),{
+	"type":"line","data":{
+		"labels":["html5","css3","js","JQuery","Bootstrap","LayUI","EasyUI","Spring","SpringMVC","MyBatis","Shiro","Maven"],
+		"datasets":[{
+						"label":"熟练技能掌握程度，总分100",
+						"data":[80,85,80,85,90,95,70,80,80,80,85,70],
+						"fill":false,
+						"borderColor":"rgb(75,192,192)",
+						"lineTension":0.3
+					}]
+	},
+});
+</script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=a3958be50ab08b5fdc47a18284b37246&plugin=AMap.ControlBar&callback=mapInit"></script>
+<script type="text/javascript">
+var map;
+function mapInit(){
+  map = new AMap.Map('container', {
+    resizeEnable: true,
+	rotateEnable:true,
+	pitchEnable:true,
+	zoom: 17,
+	pitch:80,
+	viewMode:'3D',//开启3D视图,默认为关闭
+	buildingAnimation:true,//楼块出现是否带动画
+	expandZoomRange:true,
+	zooms:[3,20],
+	center: [115.997336,28.669903],
+  });
+
+  map.addControl(new AMap.ControlBar({
+		showZoomBar:false,
+		showControlButton:true,
+		position:{
+		  right:'10px',
+		  top:'10px'
+		}
+	 }));
+  //打开信息窗体
+  openInfo();
+};
+ //在指定位置打开信息窗体
+function openInfo() {
+	var infoWindow;
+    //构建信息窗体中显示的内容
+    var info = [];
+    info.push("<div><div><img style=\"float:left;\" src=\" http://webapi.amap.com/images/autonavi.png \"/></div> ");
+    info.push("<div style=\"padding:0px 0px 0px 4px;\"><b>现居地址：</b>");
+    info.push("地址 :江西省南昌市昌东区紫阳大道338号江西现代职业技术学院4栋333寝室</div></div>");
+    info.push("电话 : 137-6628-3113   邮编 : 330095");
+    infoWindow = new AMap.InfoWindow({
+        content: info.join("<br/>")
+    });
+    infoWindow.open(map, map.getCenter());
+};
+</script>
+<script type="text/javascript" src="layui/jquery-1.12.0.min.js" ></script>
+<script>
+$(function(){
+	//页面一打开，音乐图表就自动旋转
+	$(".icon_music").addClass("key");
+	//点击音乐事件
+	$(".icon_music").on("click",function(){
+		musickey();
+	});
+	//编辑音乐播放器的播放和暂停
+	function musickey(){
+		var audio = document.getElementById('audio'); 
+		 if(audio.paused){
+			//audio.play();// 播放  
+			$(".icon_music").addClass("key");               
+			audio.play(); 
+		 }else{
+			// 暂停
+			$(".icon_music").removeClass("key");
+			audio.pause();
+		 } 
+	}
+	//个人简历
+	$("#grjl").on("click",function(){
+        window.location.hash = "#grjldiv";   
+	});
+	//个人简历
+	$("#lxfs").on("click",function(){
+        window.location.hash = "#lxfsdiv";   
+	});
+	$("#IM").on("click",function(){
+		layer.open({
+	      type: 2,
+	      title: '熊悦武的客服',
+	      shadeClose: true,
+	      shade: false,
+	      maxmin: true, //开启最大化最小化按钮
+	      area: ['893px', '600px'],
+	      content: 'htmls/IM.html'
+	    });
+	});
+});
+</script>

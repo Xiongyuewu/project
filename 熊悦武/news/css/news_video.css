@@ -1,0 +1,70 @@
+body{font:12px "微软雅黑";}
+h3{font-size:18px;}
+a{color:#000;}
+img:hover{transform:scale(1.05);transition:1.04s ease all;}
+li{list-style:none;float:left;}
+/*改变谷歌滚动条的样式*/
+::selection{background:pink;}
+::-webkit-scrollbar{width:8px;height:0px;background:#ccc;}
+::-webkit-scrollbar-button{background-color:#e5e5e5;}
+::-webkit-scrollbar-track{background:#999;}
+::-webkit-scrollbar-track-piece{background:#ccc}
+::-webkit-scrollbar-thumb{background:#666;}
+::-webkit-scrollbar-corner{background:#82AFFF;}
+::-webkit-scrollbar-resizer{background:#FF0BEE;}
+scrollbar{--moz-appearance:none !important;background:rgb(0,255,0) !important;}
+scrollbarbutton{--moz-appearance:none !important;background-color:rgb(0,0,255) !important;}
+scrollbarbutton:hover{-moz-appearance:none !important;background-color:rgb(255,0,0) !important;}
+
+/*start 导航条*/
+.navbar{width:100%;position:fixed;top:0;left:0;z-index:3;}
+#nav_log{width:40px;height:40px;margin-top:-9px;border-radius:50%;}
+/*end 导航条*/
+
+/*start 巨幕*/
+.jumbotron{margin-top:53px;}
+.jumbotron h1{font-size:22px;}
+.jumbotron p{font-size:16px;}
+.jumbotron .container{background:#f6f6f6;}
+/*end 巨幕*/
+
+/*start 按钮*/
+.btn-primary{background-color:#222222;border-color:#222222;}
+/*end 按钮*/
+
+/*start 政治媒体*/
+.zzmeiti{width:80%;margin:0px auto;}
+.zzmeiti .thumbnail{height:400px;}
+.zzmeiti .thumbnail>img{width:230px;height:180px;}
+.zzmeiti h3{font-size:14px;font-weight:bold;}
+.zzmeiti p{height:63px;overflow:hidden;}
+.zzmeiti .zz-title{height:25px;}
+/*end 政治媒体*/
+
+/*start 财经媒体*/
+.cjmeiti{width:80%;margin:0px auto;}
+.cjmeiti img{width:150px;height:100px;}
+/*end 财经媒体*/
+
+/*strt 娱乐*/
+.ylmeiti{width:80%;margin:0px auto;}
+.ylmeiti img{width:150px;height:100px;}
+/*end 娱乐*/
+
+/*strt 娱乐*/
+.tymeiti{width:80%;margin:0px auto;}
+.tymeiti img{width:150px;height:100px;}
+.tymeiti .badge{float:right;margin-top:-18px;}
+/*end 娱乐*/
+
+/*strt 娱乐*/
+.kjmeiti{width:80%;margin:0px auto;}
+.kjmeiti img{width:150px;height:100px;}
+/*end 娱乐*/
+
+/*start 网页最下边*/
+.bs-docs-footer{height:200px;background:#222;color:#f6f6f6;}
+.bs-docs-footer .container .h_left{margin-left:35px;}
+.bs-docs-footer .container a{color:#fff;height:25px;display:inline-block;margin-left:30px;line-height:25px;border:none;}
+.bs-docs-footer .container span{margin-left:14px;}
+/*end 网页最下边*/

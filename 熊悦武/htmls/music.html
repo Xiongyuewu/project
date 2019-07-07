@@ -1,0 +1,130 @@
+<html><head>
+	<meta charset="utf-8">
+	<link rel="icon" href="../layui/images/img/zou.ico">
+	<title>邹智敏的音乐播放器</title>
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<link rel="stylesheet" type="text/css" href="css/audio.css">
+</head>
+<body>
+	<div style="height:60px;width:100%;position: fixed;z-index: 50;">
+		<div class="layui-header" style="background:#rgba(0,0,0,0.3);">
+	        <div class="layui-logo">
+	        	<a href="../index.html">
+	                <img src="../layui/images/img/log.png" width="350" height="40px" style="margin-top: 10px;"/>
+	            </a>
+	        </div>
+	        <ul class="layui-nav layui-layout-right kit-nav">
+	            <li class="layui-nav-item" id="login"><a href="javascript:#;">登入</a></li>
+	            <li class="layui-nav-item" id="regin"><a href="javascript:#;" id="pay">注册</a></li>
+	        </ul>
+	    </div>
+	</div>
+	
+	<!--
+    	作者：offline
+    	时间：2017-10-16
+    	描述：身体
+    -->
+    <div class="bg"></div>
+	<div class="layui-row" style="width:100%;height: 100%;padding-top:60px;background:rgba(0, 0, 0, 0.44);">
+	    <div class="m_right">
+	    	<table>
+	    		<thead>
+	    			<td></td>
+		    		<td>歌曲(50)</td>
+		    		<td>演唱者</td>
+		    		<td>专辑</td>
+		    		<td></td>
+	    		</thead>
+	    		<tbody class="m_list">
+	    			
+	    		</tbody>
+	    	</table>
+	    </div>
+	</div>
+	
+	
+	<div class="audio-box">
+		<div class="audio-container">
+			<div class="audio-cover" style="background-image: url(&quot;../layui/images/img/zou.ico&quot;);"></div>
+			<div class="audio-view">
+				<h3 class="audio-title"></h3>
+				<h3 class="audio-name"></h3>
+				<div class="audio-btn">
+					<div class="audio-select">
+						<div class="audio-prev"><i class="layui-icon" style="font-size: 24px;">&#xe603;</i></div>
+						<div class="audio-play audio-stop"><i class="layui-icon" style="font-size: 24px;">&#xe651;</i></div>
+						<div class="audio-next"><i class="layui-icon" style="font-size: 24px;">&#xe602;</i></div>
+					</div>
+					<div class="audio-set-volume">
+						<div class="volume-box">
+							<i ><span></span></i>
+						</div>
+					</div>
+				</div>
+				<div class="audio-body">
+					<div class="audio-backs">
+						<div class="audio-this-time">00:22</div>
+						<div class="audio-count-time">04:15</div>
+						<div class="audio-setbacks">
+							<i class="audio-this-setbacks" style="width: 9.00488%;">
+								<span class="audio-backs-btn"></span>
+							</i>
+							<span class="audio-cache-setbacks" style="width: 100%;">
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="audio_btn">
+				<div class="audio-menu"><i class="layui-icon" style="font-size:20px;">&#xe65f;</i></div>
+				<div class="audio-volume"><i class="layui-icon" style="font-size:20px;">&#xe645;</i></div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="layui/layui.js" ></script>
+<script>
+layui.use('layer', function(){
+  var layer = layui.layer;
+  layer.msg('欢迎进入邹智敏的个人音乐平台');
+  $("#login").on("click",function(){
+  	layer.tips('登入系统还在卡发中，敬请期待吧 ^ _ ^ ！！', $(this),{
+  		tips: [1, '#3595CC'],
+		time: 4000
+  	});
+  });
+   $("#regin").on("click",function(){
+  	layer.tips('注册功能正在和登入系统对接中，敬请期待吧 ^ _ ^ ！！', $(this),{
+  		tips: [1, '#13c86d'],
+		time: 4000
+  	});
+  });
+});   
+</script>
+<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="js/audio.js"></script>
+<script type="text/javascript">
+$(function(){
+	var song = [{'cover':'../layui/images/img/zou.ico','src':'mp3/4.mp3','title':'想我这样的人','name':'毛不易','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'mp3/Lovemail.mp3','title':'Lovemail','name':'Era','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'mp3/Part Of Me.mp3','title':'Part Of Me','name':'Nigel Good','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'mp3/3.mp3','title':'我的梦','name':'张靓颖','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'mp3/1.mp3','title':'千年泪','name':'Tank','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'mp3/Tobu - Nostalgia.mp3','title':'Nostalgia','name':'Tobu','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'http://jq22.qiniudn.com/the.mp3','title':'the xx','name':'邹智敏','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'http://so1.111ttt.com:8282/2016/1/06m/24/199240145502.m4a?tflag=1494769732&pin=84bac9745fcebbd3ed5c598b97e15c39&ip=114.233.172.33#.mp3','title':'不该','name':'周杰伦、张惠妹','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'http://so1.111ttt.com:8282/2015/1/10m/31/103311642007.m4a?tflag=1494769515&pin=26fa27d88422f6adb1fbca3f0f17333e&ip=114.233.172.33#.mp3','title':'再见','name':'邓紫棋','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'http://so1.111ttt.com:8282/2017/1/05m/09/298092042172.m4a?tflag=1494768586&pin=f8d0e2e08864846460002b12768a9267&ip=114.233.172.33#.mp3','title':'最后一次 ','name':'庄心妍','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'http://so1.111ttt.com:8282/2017/1/05m/09/298092036393.m4a?tflag=1494768868&pin=9a24cbf7571cb3524af1d6c883916169&ip=114.233.172.33#.mp3','title':'远走高飞','name':'金志文、徐佳莹','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'http://so1.111ttt.com:8282/2016/5/06m/06/199061931237.m4a?tflag=1494769315&pin=a0b26b2dddd976d74724841f6d2641d6&ip=114.233.172.33#.mp3','title':'极乐净土','name':'GARNiDELiA','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'mp3/Audio Machine - Breath and Life.mp3','title':'Breath and Life ','name':'Audio Machine','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'mp3/2.mp3','title':'逆流时光 ','name':'安图声乐队 ','zhuanji':"未知"}
+				,{'cover':'../layui/images/img/zou.ico','src':'mp3/Joshua Hyslop-let it go.mp3','title':'let it go ','name':'Joshua Hyslop ','zhuanji':"未知"}
+				];var audioFn = audioPlay({song:song,autoPlay:true}
+				);
+});
+</script>
+
+
+</body></html>

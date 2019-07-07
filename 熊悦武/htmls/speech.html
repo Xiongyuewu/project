@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    <meta charset="UTF-8">
+    <title>获取token</title>
+    <link rel="icon" href="../layui/images/img/zou.ico">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">    
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.gettoken{width:905px;height:200px;box-shadow:0 0 10px #000;margin:50px auto;background:#393d49;}
+		.gettoken h3{width:261px;height:50px;color:#fff;display: inline-block;margin: 50px 0 0 300px;}
+		.gettoken .context{width: 730px;height: 42px; margin: 0px  auto;}
+		.gettoken .context a{background: #348a73;color: #fff;text-decoration: none;width: 100px; height: 42px;display: inline-block;line-height: 37px;text-align:center;}
+		.gettoken .context input{width:610px;height:42px;border: none;outline: none;border-radius: 2px; padding-left: 15px;font-weight:bold;}
+	</style>
+  </head>
+  
+  <body>
+  	<div class="layui-header" style="background: #393d49;">
+        <div class="layui-logo">
+        	<a href="../index.html">
+                <img src="../layui/images/img/log.png" width="350" height="40px" style="margin-top: 10px;"/>
+            </a>
+        </div>
+    </div>
+    <div class="gettoken">
+    	<h3>百度语音之获取token值</h3>
+    	<div class="context">
+	    	<a href="javascript:void(0);" onclick="getToken()" target="_black">获取token</a>
+	    	<input type="text" placeholder="请点击按钮，获取token..." id="con_text"/>
+    	</div>
+    </div>
+    
+    <div class="gettoken">
+    	<h3>百度语音之测试token值</h3>
+    	<div class="context">
+	    	<a href="javascript:void(0);" onclick="getYY($('#yy_input').val())" target="_black">语音播报</a>
+	    	<input type="text" placeholder="请输入您要播报的问蹦..." id="yy_input"/>
+	    	<audio id="audio" autoplay="" src=""></audio>
+    	</div>
+    </div>
+    
+    <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="../layui/layui.js" ></script>
+    <script type="text/javascript">
+		function getToken(){
+			var url = "getSpechToken";
+			//把Token输入框置空
+			$("#con_text").val("");
+			$.ajax({
+				type : 'post',
+				url : url, 
+				contentType: "application/json; charset=utf-8",
+				dataType:"json",
+			  	success: function(data){
+					for(var i = 0;i<data.length;i++){
+						if(data[i].access_token.length == 0){
+							$("#con_text").val(data[i].text);
+						}else{
+							$("#con_text").val(data[i].access_token);
+						}
+					}
+					//开始语音播报
+					getYY("恭喜您，权限获取成功;");
+			  	},
+			  	error :function(arg0){
+			  		switch(arg0.status)
+					{
+					  case 200: 
+					      tk(arg0.readyState);
+						  break;
+					  case 404:
+						  tk("页面找不到"); 
+						  break;
+					  case 500:
+						  tk("服务器处理出错，请稍后重试..."); 
+						  break;
+					  default:
+						  tk("数据无法请求，错误代码："+arg0.status);
+					      break; 
+					}
+			  	}
+			});
+		};
+		//弹框提示
+		function tk(text){
+			layui.use("layer",function(){
+				//自定页
+				layer.open({
+				  type: 1,
+				  skin: 'layui-layer-molv', //样式类名
+				  closeBtn: 0, //不显示关闭按钮
+				  anim: 2,
+				  shadeClose: true, //开启遮罩关闭
+				  content: "<div style='padding:50px;'>"+text+"</div>"
+				});
+			});
+		}
+		
+		function getYY(text){
+			//拿到输入框中的路径
+			var token = $("#con_text").val();
+			//判断输入框框中有没有值
+			if(token.length <= 0 || token == null) {
+				text = "对不起，您没有权限，请先获取token后，在来测试语音合成功能吧 ！！";
+				tk(text);
+				$("#audio").attr("src",getSpeech(text));
+				return false;
+			}else if(text == null || text.length <= 0 || text.length >=1024 ){
+				text = "对不起，您没有还没有输入数据或数据太长，无发进行语音播报";
+				$("#audio").attr("src",getSpeech(text));
+				return false;
+			}
+			$("#audio").attr("src",getSpeech(text));
+		}
+		function getSpeech(text){
+			var speech = "http://tsn.baidu.com/text2audio?tex="+text+"&lan=zh&cuid=12346&ctp=1&tok=24.1c9b741286e731683c8d7935c98a3656.2592000.1508077400.282335-9687132&per=4";
+			return speech;
+		}
+    </script>
+  </body>
+</html>

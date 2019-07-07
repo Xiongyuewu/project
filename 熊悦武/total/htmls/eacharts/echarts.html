@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="panel panel-default">
+		  	<div class="panel-heading"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;报表插件</div>
+			  	<div class="panel-body">
+				    <div id="pie" style="height:300px;"></div>
+				    <p>/*引入两个js["<a href="js/echarts/echarts.js">echarts.js</a>","<a href="js/echarts/echartstotal.js">echartstotal.js</a>"]架包*/</p>
+	    			<p>/*在需要引用下面的代码(根据个人的需求进行修改),这个报表就会出现，如上图！这绝对是好看的报表了^_^!!*/</p>
+					<p>zzmcharts.pie({</p>
+						<p>id:"pie",//id:需要装载的div中的id选择器</p>
+						<p>title:'饼图统计演示',//title:报表的标题</p>
+						<p>dataArr:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],</p>
+						<p>data:[</p>
+								<p>{value:'140',name:"1月"},{value:'224',name:"2月"},{value:'3280',name:"3月"},{value:'4280',name:"4月"},{value:'5280',name:"5月"},
+								<p>{value:'6280',name:"6月"},{value:'7280',name:"7月"},{value:'8280',name:"8月"},{value:'9280',name:"9月"},{value:'10280',name:"10月"},
+								<p>{value:'11280',name:"11月"},{value:'12280',name:"12月"}</p>
+							<p>]</p>
+						<p>});</p>
+					<div id="bar" style="height:300px;"></div>
+					<p>/*引入两个js["<a href="js/echarts/echarts.js">echarts.js</a>","<a href="js/echarts/echartstotal.js">echartstotal.js</a>"]架包*/</p>
+	    			<p>/*在需要引用下面的代码(根据个人的需求进行修改),这个报表就会出现，如上图！这绝对是好看的报表了^_^!!*/</p>
+					<p>zzmcharts.bar({</p>
+						<p>id:"bar",//id:需要装载的div中的id选择器</p>
+						<p>title:'饼折线+条形统计图演示',//title:报表的标题</p>
+						<p>Xdata:["最高气温","最低气温"],</p>
+						<p>xAxisData:['周一','周二','周三','周四','周五','周六','周日'],</p>
+						<p>namemax:"最高气温",</p>
+						<p>seriesdatamax:[10,21,31,41,51,61,71],</p>
+						<p>namemin:"最低气温",</p>
+						<p>seriesdatamin:[-1,-2,-3,-4,-5,-6,7],</p>
+						<p>});</p>
+			  	</div>
+			</div>
+		</div>
+	 <!-- 引入 echarts.js -->
+    <script type="text/javascript" src="js/echarts/echarts.js"></script>
+	<script type="text/javascript" src="js/echarts/echartstotal.js"></script>
+	<script type="text/javascript">
+       	zzmcharts.pie({
+			id:"pie",
+			title:'饼图统计演示',
+			dataArr:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+			data:[
+					{value:'140',name:"1月"},{value:'224',name:"2月"},{value:'3280',name:"3月"},{value:'4280',name:"4月"},{value:'5280',name:"5月"},
+					{value:'6280',name:"6月"},{value:'7280',name:"7月"},{value:'8280',name:"8月"},{value:'9280',name:"9月"},{value:'10280',name:"10月"},
+					{value:'11280',name:"11月"},{value:'12280',name:"12月"}
+				]
+			});
+		zzmcharts.bar({
+			id:"bar",
+			title:"折线+条形统计图演示",
+			Xdata:["最高气温","最低气温"],
+			xAxisData:['周一','周二','周三','周四','周五','周六','周日'],
+			namemax:"最高气温",
+			seriesdatamax:[10,21,31,41,51,61,71],
+			namemin:"最低气温",
+			seriesdatamin:[-1,-2,-3,-4,-5,-6,7],
+		});
+    </script>
+</body>
+</html>

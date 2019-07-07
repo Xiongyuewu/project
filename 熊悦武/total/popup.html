@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小弹框</title>
+		<link rel="stylesheet" href="dist/css/bootstrap.min.css" >
+		<link rel="stylesheet" href="css/popup.css" />
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+		<script type="text/javascript" src="js/popup.js" ></script>
+	</head>
+	<body>
+		<div class="panel panel-default">
+		  	<div class="panel-heading"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;小弹框插件</div>
+			  	<div class="panel-body">
+			    	<code>
+		    			<p>/*引入一个js["<a href="js/popup.js">popup.js</a>"]和一个css["<a href="css/popup.css">popup.css</a>"]架包,但在使用小标签之前,请先引入jquery的架包,即可使用*/</p>
+		    			<p>/*只需要引用一句话,这个提示的小插件就可以弹出啦！！这绝对是最人性化的设计了^_^!!*/</p>
+						<p>$.zzmbox({title:"**********",btn1:"**",btn2:"**"});//title:窗口的标题;btn1:按钮一,执行事件(函数名称是:winajax()),btn2:按钮二，不执行事件</p>
+						
+						<button type="button" class="btn btn-danger" id="b_title">弹我一下试试</button>
+						
+						<p>popup.js中部分代码展示:</p>
+						
+						<p>//居中定位的算法</p>
+						<p>function center_loading ($loading){</p>
+						<p>var width = $loading.width();//计算loading的宽度</p>
+						<p>var height = $loading.height();//计算loading的高度</p>
+						<p>var ww = $(window).width();//计算浏览器的可见宽度</p>
+						<p>var wh = $(window).height();//计算浏览器的可见高度</p>
+						<p>var left = (ww - width) / 2;</p>
+						<p>var top = (wh - height) / 2;</p>
+						<p>$loading.css({left:left,top:top});//设置坐标位置</p>
+						<p>};</p>
+						
+						<p>//浏览器的缩小而居中</p>
+						<p>function initEvents(){</p>
+							<p>$(window).resize(function(){</p>
+								<p>center_loading ($loading);</p>
+							<p>});</p>
+						<p>};</p>
+						
+			    	</code>
+			  	</div>
+		</div>
+		<script type="text/javascript">
+    	$(function(){
+			$("#b_title").on("click",function(){
+				$.zzmbox({title:"警告:",btn1:"确定",btn2:"取消"});
+			});
+    	});
+    	function winajax(){
+    		alert("你点击了确定哦！！");
+    		wincolse();
+    	}
+    </script>
+	</body>
+</html>

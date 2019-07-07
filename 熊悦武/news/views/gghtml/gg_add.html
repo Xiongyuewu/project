@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>test</title>
+		<link rel="stylesheet" type="text/css" href="../xwhtml/css/add.css">
+	</head>
+	<body>
+		<div class="bg"></div>
+		<!--start tianjia-->
+		<div class="tianjia">
+			<!--start 标题-->
+			<div class="t_tilte">
+				<p class="p p_title"><label>添加广告</label></p>
+				<div class="mymusic" title="编写累了,记得点击我哦^_^!!">
+					<i class="icon_music"></i>
+					<audio id="musics" src="../xwhtml/mp3/Daniel Powter - Bad Day.mp3" loop="loop">
+						您的浏览器不支持audio，请您升级自己的浏览器！！
+					</audio>
+				</div>
+			</div>
+			<!--end 标题-->
+			
+			<!--start 输入框-->
+			<div class="t_inputs">
+				<p class="p p_title">
+					<label>广告标题：</label>
+					<input type="text" name="xwtitle" placeholder="请输入新闻标题...."/>
+				</p>
+				<p class="p p_title">
+					<label>广告作者：</label>
+					<input type="text" name="xwauthor" placeholder="请输入您的姓名...."/>
+				</p>
+				<p class="p p_title">
+					<label>广告类型：</label>
+					<select class="p_select">
+						<option value="zz">衣服</option>
+						<option value="js">鞋子</option>
+						<option value="ty">裤子</option>
+						<option value="cj">西装</option>
+						<option value="yl">皮鞋</option>
+						<option value="kj">帽子</option>
+						<option value="qt">其他</option>
+					</select>
+				</p>
+				<p class="p p_title">
+					<label>广告时间：</label>
+					<input type="date" name="xwtime" placeholder="请输入新闻发布时间...."/>
+				</p>
+			</div>
+			<!--end 输入框-->
+				
+			<!-- start 提示用户 -->
+			<div class="xwedit">
+				<div class="e_title">确定要发布吗？</div>
+			</div>
+			<!--end 提示用户 -->
+
+			<!--start 按钮-->
+			<div class="btns">
+				<a href="javascript:void(0);">保存</a>
+				<a href="../news_manage_gg.html">取消</a>
+			</div>
+		</div>
+		<!--end tianjia-->
+<script type="text/javascript" src="../../js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+		//页面一加载就播放页面
+    	$("#musics").get(0).play();
+    	//页面一加载，音乐按钮就旋转
+		$(".icon_music").addClass("key");
+		//点击音乐事件
+		$(".icon_music").on("click",function(){
+			musickey();
+		});
+    });
+    	//编辑音乐播放器的播放和暂停
+	function musickey(){
+		var audio = document.getElementById('musics'); 
+	     if(audio.paused){
+	     	//audio.play();// 播放  
+	     	$(".icon_music").addClass("key");               
+	        audio.play(); 
+	     }else{
+	     	// 暂停
+	     	$(".icon_music").removeClass("key");
+	        audio.pause();
+	          
+	     } 
+	}
+</script>
+	</body>
+</html>

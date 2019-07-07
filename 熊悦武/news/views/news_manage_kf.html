@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width,user-scalable=no" name="viewport">
+	<title>IM聊天机器人</title>
+	<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="dialogutil/loading.css">
+  	<script type="text/javascript" src="dialogutil/loading.js"></script>
+ 	<script type="text/javascript" src="js/htmlloading.js"></script>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		li{list-style:none;}
+		input{outline:none;border:none;}
+		span{font-size:12px;}
+		html,body{height:100%;}
+		body{background:url(../img/IMimg/bg.jpg) no-repeat;background-size:cover;overflow:hidden;}
+
+		/*IM start*/
+		.IM{-webkit-user-select:none;width:350px;height:600px;position:absolute;right:0;left:0;top:0;bottom:0;margin:auto;border-radius:35px 35px 35px 35px;}
+		/*IM-top start*/
+		.IM .IM-top{height:50px;background-image:url(../img/IMimg/top.jpg);background-size:cover; border-radius:35px 35px 0px 0px;}
+		.IM .IM-title{width:100%;height:24px;background-image:url(../img/IMimg/title.jpg);}
+		/*IM-top endt*/
+
+		/*.IM .c-title start*/
+		.IM .c-title{width:100%;height:30px;background:#fff;}
+		.IM .c-title ul li{cursor:pointer;float:left;height:28px;line-height: 28px;color:blue;font-size:14px;}
+		.IM .c-title ul .one{margin-left:10px;}
+		.IM .c-title ul .tow{width:90px;margin-left:5px;}
+		
+		.IM .c-title ul .three{margin-left:50px;}
+		.IM .c-title ul .three span{font-size:0.1em;}
+		
+		.IM .c-title ul .foru{width:28px;height:28px;margin:0px 3px 0 17px;;overflow:hidden;}
+		.IM .c-title ul .foru img{margin-top:3px;}
+
+		.IM .c-title ul .fiver{width:28px;height:28px;overflow:hidden;}
+		.IM .c-title ul .fiver img{margin-top:3px;}
+		/*.IM .c-title end*/
+
+		/*IM-con start*/
+		.IM .IM-con{width:348px;height:446px;background:url(../img/IMimg/bg.jpg) no-repeat 100%; background-size: cover;border-left:1px solid #fff;border-right:1px solid #fff;color:#fff;float:left;}
+			
+		.IM .IM-con  .chart-con {width:100%;height:405px;overflow:auto;}
+		.IM .IM-con  .chart-con .IMRobot{width:100%;}
+		.IM .IM-con  .chart-con .IMRobot img{border-radius:50%;}
+		.IM .IM-con  .chart-con .IMRobot span{text-shadow:1px 1px 16px #000;}
+		.IM .IM-con .chatbor{text-align: right;}
+		
+
+		.IM .IM-con  .IMRobotform{width: 100%;height:38px;}
+		.IM .IM-con  .IMRobotform .text{width:75%;height:30px;margin-left:10px;padding-left:10px;}
+		.IM .IM-con  .IMRobotform .btn{width:15%;height:30px;background:#ededed;cursor:pointer;transition:1.5s ease all;}
+		.IM .IM-con  .IMRobotform .btn:hover{background:#666;transition:1.0s ease all;}
+		/*.IM-con end*/	
+
+		/*IM-bottom start*/
+		.IM .IM-bottom{width:350px;height:80px;background-image:url(../img/IMimg/bottom.jpg);background-size:cover;border-radius:0px 0px 35px 35px ;float:left;}
+		.IM .IM-bottom .yuan{width:50px;height:50px;margin:20px auto;border:1px solid rgb(236, 237, 239);border-radius:50%;cursor:pointer;}
+		.IM .IM-bottom .yuan:active{border-radius:50%;box-shadow:1px 0 40px 1px #000 ;}
+		/*IM-bottom end*/
+		/*响应式布局 start*/
+		@media screen  and (max-width:500px){
+			
+		}
+		/*响应式布局 start*/
+		/*IM  end*/
+	</style>
+</head>
+<body>
+	<div class="IM">
+		<div class="IM-top"></div>
+		<div class="IM-title"></div>
+		<div class="c-title">
+			<ul>
+				<li class="one"><</li>
+				<li class="tow">消息(99+)</li>			
+				<li class="three">邹智敏<span>(手机在线)</span></li>
+				<li class="foru"><img src="../img/IMimg/dianhua.png" height="23"/></li>
+				<li class="fiver"><img src="../img/IMimg/renwu.png" height="23"/></li>				
+			</ul>
+		</div>
+		<div class="IM-con">
+			<div class="chart-con">
+				<div class="IMRobot robot">
+					<img src="../img/IMimg/robot.png"  width="50" height="50" alt="客服机器人"/>:
+					<span>你好，我是图图，请您输入您遇到的问题^_^！</span>
+				</div>
+				<div class="IMRobot chatbor">
+					<span>你好啊！图图。我是你的主人^_^！</span>:
+					<img src="../img/login.jpg"  width="50" height="50" alt="客户端"/>
+				</div>
+			</div>
+			
+			<div class="IMRobotform">
+				<input type="text" name="text" class="text" placeholder="请输入您的问题....">
+				<input type="button" value="发送" class="btn">
+			</div>
+		</div>
+		<div class="IM-bottom">
+			<div class="yuan" title="清除屏幕中的内容？"></div>
+		</div>
+	</div>
+</body>
+</html>

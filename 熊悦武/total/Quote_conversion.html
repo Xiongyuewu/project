@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>引号转换方式</title>
+		<link rel="stylesheet" href="dist/css/bootstrap.min.css" >
+	</head>
+	<body>
+		<div class="panel panel-default">
+		  	<div class="panel-heading"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span>&nbsp;&nbsp;双引号转换成单引号工具</div>
+			  	<div class="panel-body">
+			  		<blockquote class="navbar-default">
+					  转换前的代码  : 
+					</blockquote>
+			    	<textarea id="tm-source" class="form-control" rows="10" style="resize: none;"><a href="#" class="btn">百度一下</a></textarea>
+			    	<p></p><button type="button" class="btn btn-default">双引号转单引号</button></p>
+			    	<blockquote class="navbar-default">
+					  转化后的代码 : 
+					</blockquote>
+			    	<textarea id="tm-target" class="form-control" rows="10" style="resize: none;"></textarea>
+			  	</div>
+			</div>
+		</div>
+<script src="js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="js/json.js"></script>
+<script type="text/javascript">
+$( function(){
+    //双引号转单引号
+    $(".btn").on("click",function(){
+		 zzmtransfter.tm_transfter({
+			tag:$("#tm-source")
+		 });
+    });
+});
+</script></body></html>

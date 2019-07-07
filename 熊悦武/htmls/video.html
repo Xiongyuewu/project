@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../layui/images/img/zou.ico">
+	<title>邹智敏抓取视屏平台</title>
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<style type="text/css">
+		.tv{
+			width: 100%;
+			height:150px;
+			padding:5px;display: block;
+			margin-top:10px;
+			box-shadow: 0 0 1px #000;
+			overflow: hidden; 
+			word-break:keep-all;
+           	white-space:nowrap;
+           	text-overflow:ellipsis;
+           }
+		.tv:hover{box-shadow: 0 0 20px #000;}
+		.tv img{width: 150px;height: 100%;display: inline-block;}
+		.tv h1{display: inline-block;font-size: 18px;text-indent: 1em;}
+	</style>
+</head>
+<body>
+	<div class="layui-header" style="width:100%;background: #393d49;">
+		<div class="layui-logo">
+			<a href="../index.html">
+		        <img src="../layui/images/img/log.png" width="350" height="40px" style="margin-top: 10px;"/>
+		    </a>
+		</div>
+	</div>
+	<div class="layui-container" style="margin:100px auto;">
+		<div class="layui-row layui-anim layui-anim-scale">
+	      <div class="layui-col-md10">
+	      		<input type="text" name="title" id="weburl" placeholder="请输入视屏网页链接实例：http://www.youku.com" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+	      </div>
+	      <div class="layui-col-md2">
+	      		<button class="layui-btn layui-btn-warm" id="zqwy">抓取视屏</button>
+	      </div>
+		</div>
+	</div>
+	<div class="layui-container" style="margin:100px auto;">
+		<div class="layui-row">
+	      <div class="layui-col-md11">
+	      	<a href="#" class="layui-anim layui-anim-scale tv">
+	      		<img src="http://g3.ykimg.com/0542010159E9C872ADD016A66B89C018" alt="电视名称"/>
+	      		<h1>[科技]华为 Mate 10 Pro 试玩欣赏, 华为这次的巅峰之作颜值要爆棚</h1>
+	      		<input type="hidden" value="http://open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=5daf0395b5ec3f7d177dec0cc911da1d&tvId=817997700&accessToken=2.f22860a2479ad60d8da7697274de9346&appKey=3955c3425820435e86d0f4cdfe56f5e7&appId=1368&height=100%&width=100%" />
+	      	</a>
+	      	<a href="#" class="layui-anim layui-anim-scale tv">
+	      		<img src="//g2.ykimg.com/0542040858F4464C00000162EB08F9FA" alt="电视名称"/>
+	      		<h1>华为Mate 10体验：到底能否堪当最佳国产手机？ </h1>
+	      		<input type="hidden" value="http://open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=5daf0395b5ec3f7d177dec0cc911da1d&tvId=817997700&accessToken=2.f22860a2479ad60d8da7697274de9346&appKey=3955c3425820435e86d0f4cdfe56f5e7&appId=1368&height=100%&width=100%" />
+	      	</a>
+	      </div>
+		</div>
+	</div>
+<script type="text/javascript" src="../layui/layui.js" ></script>
+<script type="text/javascript" src="../layui/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript">
+	$(function(){
+		
+		/*
+		 * 开始点击抓取按钮
+		 */
+		$("#zqwy").on("click",function(){
+			//开始拿到输入框中的值
+			var text = $("#weburl").val();
+			//开始判断输入框的值是不是空的
+			if(!isEmpty(text)){
+				$("#weburl").val("");//清空输入框中的值
+				//开始对接后台
+				//....
+				//现在是模拟后台对接成功的弹窗提示
+				tk("现在还在和后台对接中，请过几天再来试吧！！");
+			}else{
+				tk("请输入优酷链接，如若不知道，请复制一下网址：http://www.youku.com；暂时只能抓取优酷的视屏，请见谅");
+				return false;
+			}
+			
+		});
+		
+		$(".tv").on("click",function(){
+			//视屏标题
+			var title = $(this).find("h1").text();
+			//视屏源
+			var text = $(this).find("input").val();
+			getvideo(title,text);
+		});
+	});
+	
+	/**
+	 * 判断非空
+	 * @descript : 开始封装弹出层
+	 * @author : 邹智敏
+	 * @param val
+	 * @returns {Boolean}
+	 */
+	function isEmpty(val) {
+		val = $.trim(val);
+		if (val == null)
+			return true;
+		if (val == undefined || val == 'undefined')
+			return true;
+		if (val == "")
+			return true;
+		if (val.length == 0)
+			return true;
+		if (!/[^(^\s*)|(\s*$)]/.test(val))
+			return true;
+		return false;
+	}
+	
+	/*
+	 * @descript : 开始封装弹出层
+	 * @author : 邹智敏
+	 * @returns {无}
+	 */
+	function tk(text){
+		layui.use("layer",function(){
+			//自定页
+			layer.open({
+			  type: 1,
+			  title:"提示",
+			  skin: 'layui-layer-molv', //样式类名
+			  closeBtn: 0, //不显示关闭按钮
+			  anim: 2,
+			  shadeClose: true, //开启遮罩关闭
+			  content: "<div style='padding:50px;'>"+text+"</div>"
+			});
+		});
+	};
+	
+	
+	//弹出层中打开一个视屏
+	function getvideo(title,text){
+		layui.use("layer",function(){
+			//iframe层-多媒体
+			layer.open({
+			  type: 2,
+			  title:title,
+			  area: ['960px', '580px'],
+			  shade: 0.5,
+			  closeBtn: 1,
+			  maxmin:true,
+			  shadeClose: true,
+			  content: text,
+			});
+			layer.msg('点击任意处关闭');
+		});
+	}
+</script>
+</body>
+</html>

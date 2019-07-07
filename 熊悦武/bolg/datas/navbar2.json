@@ -1,0 +1,12 @@
+[{
+    "id": "2",
+    "title": "组件",
+    "icon": "fa-cogs",
+    "spread": false,
+    "children": [{
+        "id": "4",
+        "title": "Navbar",
+        "icon": "fa-table",
+        "url": "navbar.html"
+    }]
+}]

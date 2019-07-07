@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>移动开发与适配</title>
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+		<style type="text/css">
+	    	div{width:98%;margin:1% 1%;}
+	    </style>
+	</head>
+	<body>
+		<div>
+			 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+		        <legend>移动开发与适配</legend>
+		    </fieldset>
+		    
+			  <blockquote class="layui-elem-quote">一： 第一种方案是：所有的单位使用rem来适配；首先在页面上设置html的font-size的大小，比如：html { font-size: 100px; }</blockquote>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">@media(min-width: 320px) { html { font-size: 1em; } }</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">@media(min-width: 360px) { html { font-size: 1.5em; } }</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">@media(min-width: 400px) { html { font-size: 2em; } }</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">@media(min-width: 640px) { html { font-size: 2.5em; } }</h5>
+			    </div>
+			  </li>
+			  
+			  <blockquote class="layui-elem-quote">二：第二种方案是：纯碎使用px作为单位；(css3媒体查询如下：)</blockquote>
+			  <pre class="layui-code" lay-title="css" lay-skin="notepad" lay-encode="false">
+			  	/*开发手机端能够适应的页面在head标签中必须加入下面这一行*/
+			  	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+				/* 对于400-450按照400px来计算 */
+				@media (min-width: 400px) and (max-width:450px){
+				/* 640/400 = 1.6*/ 
+				@multiple: 1.6;
+				.mixin(@multiple);
+				/* 下面可以写一些私有css属性覆盖掉 */
+				
+				}
+				/* 对于360-399按照360px来计算 */
+				@media (min-width: 360px) and (max-width:399px){
+				/* 640/360 = 1.78 */ 
+				@multiple: 1.78;
+				.mixin(@multiple);
+				/* 下面可以写一些私有css属性覆盖掉 */
+				}
+				/* 对于320-359按照320px来计算 */
+				@media (min-width: 320px) and (max-width:359px){
+				/* 640/320 = 2*/ 
+				@multiple: 2;
+				.mixin(@multiple);
+				/* 下面可以写一些私有css属性覆盖掉 */
+				}
+		   	  </pre>
+		</div>
+		<script type="text/javascript" src="../plugins/layui/layui.js" ></script>
+		<script>
+			layui.use('code', function(){ //加载code模块
+			     layui.code(); //引用code方法
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,user-scalable=no" name="viewport">
+		<title>登入新闻后台管理界面</title>
+	    <link rel="stylesheet" href="../css/login_regin.css" type="text/css"/>
+	    <link rel="stylesheet" href="../css/animate.css" type="text/css"/>
+	    <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+		<script type="text/javascript" src="../js/lunbo/lunbotu.js"></script>
+		<script type="text/javascript" src="../js/login_regin/canvas.js"></script>
+	    <script type="text/javascript" src="../js/login_regin/login.js"></script>
+	    <script type="text/javascript" src="../js/login_regin/regin.js"></script>
+	</head>
+	<body>
+		<div class="bg">
+			<!--S 轮播图-->
+			<div id="lunbotu">
+				<div id="igs">
+					<div class="ig"><img src="../img/lunbo1.jpg"/></div>
+					<div class="ig"><img src="../img/lunbo2.jpg"/></div>
+					<div class="ig"><img src="../img/lunbo3.jpg"/></div>
+				</div>
+			</div>
+			<!--E  轮播图-->	
+		</div>
+		<!--s 登入-->
+		<div id="login">
+			<div class="top"><h2>新闻发布系统后台管理登入界面</h2></div>
+			<div class="login">
+				<form action="news_manage.html" method="post" id="loginForm">
+					<p>
+						<input class="inp text1" id="login-input" jreqiured="true" regex="\d*" min="1" jvalidator="email" maxlength="12" placeholder="请输入账户..." name="username" type="text" onkeyup='this.value=this.value.replace(/[^0-9]\D*$/,"")'/>
+					</p>
+					<p>
+						<input class="inp text2" maxlength="16" placeholder="请输入密码..." name="password" type="password" onkeyup='this.value=this.value.replace(/[^0-9][a-z][A-Z]\D*$/,"")'/>
+					</p>
+					<p>
+						<input type="submit"  class="inp" id="submitLogin"  value="登录"/>
+					</p>
+					<p>
+						<div class="btn">
+							<a href="javascript:void(0);" class="b btn1">注册</a>
+							<a href="#" class="b btn2">忘记密码</a>
+						</div>
+					</p>
+				</form>
+			</div>
+		</div>
+		<!--s 登入-->
+		
+		<!--s 注册-->
+		<div id="regin">
+			<div class="top"><h2>新闻发布系统后台管理注册界面</h2></div>
+			<form action="" method="post" id="reginForm">
+				<p><input jreqiured="true" regex="\d*" min="1" jvalidator="email" maxlength="12" placeholder="请输入账户..." name="username" type="text" onkeyup='this.value=this.value.replace(/[^0-9]\D*$/,"")'/></p>
+				<p><input type="password" name="password1" placeholder="请填写密码...." min="1" maxlength="30" onkeyup='this.value=this.value.replace(/[^0-9][a-z][A-Z]\D*$/,"")'/></p>
+				<p><input type="password" name="password2" placeholder="请确定密码..." min="1" maxlength="30" onkeyup='this.value=this.value.replace(/[^0-9][a-z][A-Z]\D*$/,"")'/></p>
+				<p>
+					<input type="text" name="yz" class="yztext" placeholder="请输入验证码..."min="1" maxlength="4" onkeyup='this.value=this.value.replace(/[^0-9]\D*$/,"")'/>
+					<img src="../img/images/yz.png" width="95" height="30" alt="无法加载验证码" title="看不清?点击换一张" class="yzimg"/>
+				</p>
+				<p><a href="#" id="submitregin">注册</a><a href="javascript:void(0);" class="btn2">登录</a></p>
+			</form>
+		</div>
+		<!-- 注册-->
+		<canvas id="canvas">您的浏览器不支持HTML5 canvas，请换一个浏览器</canvas>
+		<script type="text/javascript">
+			$(function(){
+					/*Start--登入的注册按钮*/
+					$("#loginForm .btn1").click(function(){
+						$("#login").hide();
+						$("#regin").addClass("animated flipInY").show();
+					});
+					/*End--登入的注册按钮*/
+					
+					/*Start--注册的登入按钮*/
+					$("#reginForm .btn2").click(function(){
+						$("#regin").hide();
+						$("#login").addClass("animated flipInY").show();
+					});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>可视化音乐播放器</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			html,body{height: 100%;font-size: 12px;font-family: "微软雅黑";}
+			li{list-style:none;color: #000;cursor:pointer;}
+			input{border-radius: 5px;}
+			span{color: #000;}
+			.music{width: 100%;height:100%;background:#fff;}
+			.m-left{width:100%;height: 100%;overflow: auto;position:absolute;z-index:2;}
+			
+			.m-left .m-content{width: 100%;height:85%;}
+			
+			.m-left .m-content .m-c-left{width: 200px;height: 100%;position: absolute;z-index: 1;}
+			.m-left .m-content .m-c-left .m-c-serach{width: 300px;margin-left: 15px;}
+			.m-left .m-content .m-c-left .m-c-serach input{width: 140px;height: 35px;border:0;}
+			.m-left .m-content .m-c-left .m-c-serach a{padding: 6px;background: #ededed;color: #000;cursor: pointer;}
+			.m-left .m-content .m-c-left ul li{height: 35px;width:96%;line-height: 35px;margin:2% 2%;text-indent: 5px;}
+			.m-left .m-content .m-c-left ul li:hover{background:rgba(175,175,174,0.3);}
+			
+			.m-left .m-content .m-c-center{width:1000px;height: 100%;position: absolute;z-index: 2;margin-left: 200px;}
+			.m-left .m-content .m-c-center table{width:100%;border: none;text-indent: 2em;}
+			.m-left .m-content .m-c-center table td{height: 35px;}
+			.m-left .m-content .m-c-center table tbody{border-top:1px solid #f8f8f8;}
+			.m-left .m-content .m-c-center table tbody tr{border-bottom:1px solid #fff;cursor: pointer;}
+			.m-left .m-content .m-c-center table tbody tr:hover{background:rgba(175,175,174,0.3);}
+			
+			.m-left .m-zj{width: 100%;height:10%;position:absolute;z-index: 5;}
+			.m-left .m-zj .m-z-left{width: 200px;height:100%;text-align: center;}
+			.m-left .m-zj .m-z-left ul li{width: 66px;height:35px;float: left;line-height: 35px;cursor: pointer;margin-top:10px;}
+			
+			.m-right{width:100%;height:100%;position: absolute;}
+			.m-right #canvas{width:100%;height:100%;display:block;}
+			.m-right #audio{display: block;width: 300px;margin: 0 auto;display:none;}
+		</style>
+		<link rel="stylesheet" href="dist/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div class="music">
+			<div class="m-left">
+				
+				<!--
+                	作者：offline
+                	时间：2017-08-10
+                	描述：中间内容部分
+                -->
+                <div class="m-content">
+                	<div class="m-c-left">
+                		<div class="m-c-serach">
+                			<input type="text" name="serach" placeholder="请在此输入内容.....">
+                			<a href="javascript:void(0);"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                		</div>
+                		<ul>
+                			<li><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>&nbsp;&nbsp;正在播放</li>
+                			<li><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>&nbsp;&nbsp;播放历史</li>
+                			<li><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;&nbsp;我收藏的单曲</li>
+                		</ul>
+                	</div>
+                	<div class="m-c-center">
+                		<table>
+						 	<thead>
+						 		<tr>
+						 			<td></td>
+						 			<td>歌曲(50)</td>
+						 			<td>演唱者</td>
+						 			<td>专辑</td>
+						 			<td></td>
+						 		</tr>
+						 	</thead>
+						 	<tbody>
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>江湖笑</td>
+						 			<td>周华健e</td>
+						 			<td value="江湖笑.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>逆流时光</td>
+						 			<td>安图声乐队</td>
+						 			<td value="安图声乐队 - 逆流时光.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+
+								<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>Breath and Life</td>
+						 			<td>Audio Machine</td>
+						 			<td value="Audio Machine - Breath and Life.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>平凡之路</td>
+						 			<td>朴树</td>
+						 			<td value="朴树 - 平凡之路.mp3">猎户星</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>伤心太平洋（cover：任贤齐）</td>
+						 			<td>卢润泽</td>
+						 			<td value="卢润泽 - 伤心太平洋（cover：任贤齐）.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>远走高飞</td>
+						 			<td>金志文</td>
+						 			<td value="金志文 - 远走高飞.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>骄傲的少年</td>
+						 			<td>南征北战</td>
+						 			<td value="骄傲的少年.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>平凡之路</td>
+						 			<td>王珞丹</td>
+						 			<td value="王珞丹 - 平凡之路.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>一人我编程累</td>
+						 			<td>jame老师</td>
+						 			<td value="一人编程累-多少程序猿的心声.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>一人我编程累</td>
+						 			<td>夏恩龙</td>
+						 			<td value="夏恩龙 - 一人我编程累.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>Lovemail</td>
+						 			<td>Nicoleta Matei</td>
+						 			<td value="Lovemail.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 		<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>New York</td>
+						 			<td>Baptiste Giabiconi</td>
+						 			<td value="Baptiste Giabiconi - New York.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+								<tr>
+						 			<td><input type="checkbox">&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+						 			<td>Anywhere I Go</td>
+						 			<td>Vicetone</td>
+						 			<td value="Vicetone - Anywhere I Go.mp3">未知</td>
+						 			<td>
+						 				<a href="javascript:alert('喜欢');" title="收藏"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('其他');" title="其他"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						 				<a href="javascript:alert('删除');" title="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 			</td>
+						 		</tr>
+						 	</tbody>
+						</table>
+                	</div>
+                </div>
+                
+                <!--
+                	作者：offline
+                	时间：2017-08-10
+                	描述：播放音乐组件
+                -->
+                <div class="m-zj">
+                	<div class="m-z-left">
+                		<span id="m-z-content">Nostalgia - Tobu</span><br>
+                		<ul>
+                			<li><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></li>
+                			<li><span class="glyphicon glyphicon-play" aria-hidden="true"></span></li>
+                			<li><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></li>
+                		</ul>
+                	</div>
+                </div>
+			</div>
+			<div class="m-right">
+				<canvas id="canvas" width="800" height="350">对不起您的浏览器不支持html5，请换一个支持html5的浏览器来进行</canvas>
+				<audio id="audio" controls="controls"  src="">
+						<p>可能您的浏览器不支持html5的音频播放器，请换一个浏览器来播放音乐</p>
+				</audio>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="js/music.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var audio = document.getElementById("audio");
+				var musicplayobj =  $(".m-zj .m-z-left ul li:eq(1)");
+				var zjnr = $(".m-zj .m-z-left #m-z-content");
+				var state = 0;//0：代表播放；1：代表暂停
+				//点击播放按钮
+				$(".m-zj .m-z-left ul li").on("click",function(){
+					var index = $(this).index() + 1;
+					switch(index){
+						//点击上一首
+						case 1: 
+								console.log("您点击了上一首歌");
+								break;
+								
+						//点击播放或暂停
+						case 2:
+								if(state == 0){
+									musicplayobj.find("span").attr("class","glyphicon glyphicon-pause");
+									audio.play();
+									state = 1;
+								}else{
+									musicplayobj.find("span").attr("class","glyphicon glyphicon-play");
+									audio.pause();
+									state = 0;
+								}
+								break;
+								
+						//点击下一首
+						case 3: 
+								console.log("您点击了下一首歌");
+								break;
+					}
+				});
+				
+				//点击table中的tr是就播放当前点击的音乐
+				$("table tbody tr").on("click",function(){
+					var src = $(this).find("td:eq(3)").attr("value");
+					var text1 = $(this).find("td:eq(1)").text();
+					var text2 = $(this).find("td:eq(2)").text();
+					zjnr.empty().append(text1 +" - "+ text2);//显示当前播放的音乐信息
+					$("#audio").attr("src","mp3/"+src);//填充当前播放的路径
+					musicplayobj.find("span").attr("class","glyphicon glyphicon-pause");//改变播放 按钮图标样式
+					audio.play();//开始播放音乐
+					state = 1;
+				});
+				//开始监听音乐有没有播放完毕
+				audio.loop = false;//不循环播放
+				audio.addEventListener('ended', function () {  
+				   musicplayobj.find("span").attr("class","glyphicon glyphicon-play");
+				}, false);
+			});
+		</script>
+	</body>
+</html>

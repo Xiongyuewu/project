@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+		<title>tree</title>
+		<link rel="stylesheet" href="dist/css/bootstrap.min.css" />
+		<style type="text/css">
+			*{margin: 0;padding: 0px;}
+			body{font:12px "微软雅黑";background: #f8f8f8;}
+			.tree{width:200px;height: 100%;background: #f8f8f8;}
+			.tree .t_ul li{cursor: pointer;list-style: none;margin-top:1px;line-height: 35px;padding-left: 15px;color: #000;}
+			.tree .t_ul li .ul li{width:l68px;}
+			.tree .t_ul li .ul li:hover{background: #fff;}
+			.tree .t_ul li .li_ul3 li:hover{background: #fff;}
+			.tree .t_ul li .li_ul3 .li_ul3_ul1 li:hover{background: #666;}
+			.tree .t_ul .ul{display: none;}
+		</style>
+	</head>
+	<body>
+		<div class="tree">
+			<ul class="t_ul">
+			  <li>
+	  		  	<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;&nbsp;自制插件
+		  		<ul class="ul li_ul1">
+		  			<li><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;tip提示组件</li>
+		  			<li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;dialog会话</li>
+		  			<li><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>&nbsp;&nbsp;支付弹窗</li>
+		  			<li><span class="glyphicon glyphicon-sort" aria-hidden="true"></span>&nbsp;&nbsp;瀑布流</li>
+		  			<li><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;报表</li>
+		  		</ul>
+			  </li>
+			  <li>
+			  	<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;&nbsp;页面网站
+			 	<ul class="ul li_ul2">
+			 		<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&nbsp;&nbsp;地图购物</li>
+		  			<li><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>&nbsp;&nbsp;新闻发布系统<静态></li>
+		  			<li><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp;&nbsp;百度换肤</li>
+		  			<li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>&nbsp;&nbsp;html5图片拖拽上传</li>
+		  			<li><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>&nbsp;&nbsp;瀑布流</li>
+		  			  
+			  	</ul>
+			  </li>
+			  <li>
+			  	<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;&nbsp;UI元素
+			  	<ul class="ul li_ul3">
+			 		<li><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;&nbsp;form表单</li>
+		  			<li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;table表格</li>
+		  			<li>
+		  				<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;&nbsp;canvas绘制
+		  				<ul class="li_ul3_ul1">
+		  					<li><span class="glyphicon glyphicon-record" aria-hidden="true"></span>&nbsp;&nbsp;线性粒子</li>
+			  				<li><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>&nbsp;&nbsp;碰撞</li>
+			  				<li><span class="glyphicon glyphicon-tint" aria-hidden="true"></span>&nbsp;&nbsp;烟花</li>
+		  				</ul>
+		  			</li>
+		  			<li><span class="glyphicon glyphicon-grain" aria-hidden="true"></span>&nbsp;&nbsp;ztree</li>
+			  	</ul>
+			  </li>
+			  <li>
+			  	<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;&nbsp;工具
+				<ul class="ul li_ul4">
+			 		<li><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>&nbsp;&nbsp;css压缩</li>
+		  			<li><span class="glyphicon glyphicon-sort" aria-hidden="true"></span>&nbsp;&nbsp;双引号转单引号</li>
+				</ul>
+			  </li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var falg = true;
+				$(".tree .t_ul li").on("click",function(){
+					var index = $(this).index() + 1;
+					if(falg){
+						$(this).find(".li_ul"+index).slideDown(200);
+						$(this).siblings().find(".ul").slideUp(200);
+						falg=false;
+					}else{
+						$(this).find(".li_ul"+index).slideUp(200);
+						falg=true;
+					}
+				});
+				$(".tree .t_ul li .li_ul3 li").on("click",function(){
+					var index = $(this).index() + 1;
+					if(index == 3){
+						$(this).find("ul").slideToggle(200);
+					}
+				})
+			});
+		</script>
+	</body>
+</html>

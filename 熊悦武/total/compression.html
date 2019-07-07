@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>代码压缩方式</title>
+		<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="panel panel-default">
+		  	<div class="panel-heading"><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>&nbsp;&nbsp;css压缩工具</div>
+		  		<div class="panel-body">
+		    		<textarea class="form-control" style="resize: none;" rows="25"  id="codeText">
+._loading{border-radius:5px;width:200px;height:50px;background:#666;box-shadow:3px 3px 15px 0px #000;position:absolute;z-index:500;font-size:14px;color:#000;line-height:50px;text-align:center;}
+._loading img{padding-top:0px;padding-right:15px;vertical-align:middle;}
+@-ms-keyframes flipOutX{0%{-ms-transform:perspective(400px) rotateX(0deg);opacity:1;}100%{-ms-transform:perspective(400px) rotateX(90deg);opacity:0;}}@-o-keyframes flipOutX{0%{-o-transform:perspective(400px) rotateX(0deg);opacity:1;}100%{-o-transform:perspective(400px) rotateX(90deg);opacity:0;}}
+		    		</textarea> 
+					<p>
+			    		<div class="btn-group" role="group" aria-label="true">
+						  <button type="button" class="btn btn-default" onclick="$('codeText').value=code.A();">压缩</button>
+						  <button type="button" class="btn btn-default" onclick="$('codeText').value=code.B();">标准</button>
+						  <button type="button" class="btn btn-default" onclick="$('codeText').value=code.C();">微压缩</button>
+						  <button type="button" class="btn btn-default" onclick="$('codeText').value=code.Z();">还原</button>
+						</div>
+		    		</p>
+		  		</div>
+		</div>
+<script src="js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">
+function $(id){return document.getElementById(id);}
+function codeZip(obj){
+	this.S=function(){
+		var code=obj.value;
+		if(!this.codeZ || this.codeZ=="")this.codeZ=code;
+	code=code.replace(/(\n|\t|\s)*/ig,'$1');
+	code=code.replace(/\n|\t|\s(\{|\}|\,|\:|\;)/ig,'$1');
+	code=code.replace(/(\{|\}|\,|\:|\;)\s/ig,'$1');
+	return code;
+}
+this.A=function(){
+	var code=this.S();
+	return code;
+} 
+this.B=function(){
+	var code=this.S();
+	code=code.replace(/(\{)/ig,' $1');
+	code=code.replace(/(\{|\;)/ig,'$1\n\t');
+	code=code.replace(/\t*(\})/ig,'$1\n');
+	code=code.replace(/(\*\/)/ig,'$1\n');
+	return code;
+}
+this.C=function(){
+	var code=this.S();
+	code=code.replace(/(\})/ig,'$1\n');
+	code=code.replace(/(\*\/)/ig,'$1\n');
+	return code;
+} 
+this.Z=function(){
+	return (this.codeZ)?this.codeZ:obj.value;
+}
+var my=this;
+obj.onkeydown=function(){
+	my.codeZ="";	
+	}
+}
+var code=new codeZip($('codeText'));
+</script></body></html>

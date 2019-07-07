@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../layui/images/img/zou.ico">
+		<title>工具</title>
+		<link rel="stylesheet" href="../layui/css/layui.css" />
+	</head>
+	<body>
+		<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+		  <legend>代码大变形</legend>
+		</fieldset>
+	  <div class="layui-form-item layui-form-text">
+	      <textarea id="codeText" style="height: 500px;resize: none;" class="layui-textarea">
+._loading{border-radius:5px;width:200px;height:50px;
+	background:#666;box-shadow:3px 3px 15px 0px #000;
+	position:absolute;
+	z-index:500;font-size:14px;color:#000;line-height:50px;text-align:center;}
+	._loading img{padding-top:0px;padding-right:15px;vertical-align:middle;}    
+	@-ms-keyframes flipOutX{0%{-ms-transform:perspective(400px) rotateX(0deg);opacity:1;}
+	100%{-ms-transform:perspective(400px) rotateX(90deg);opacity:0;}}
+	@-o-keyframes flipOutX{0%{-o-transform:perspective(400px) rotateX(0deg);opacity:1;}
+	100%{-o-transform:perspective(400px) rotateX(90deg);opacity:0;}}
+	      </textarea>
+	  </div>
+	  <div class="layui-form-item" style="margin-left: 10px;">
+	    <button class="layui-btn layui-btn layui-btn-danger" onclick="$('codeText').value=code.A();">完全压缩</button>
+	    <button class="layui-btn layui-btn-warm" onclick="$('codeText').value=code.B();">微压缩</button>
+	    <button class="layui-btn layui-btn-normal" onclick="$('codeText').value=code.C();">标准</button>
+	    <button class="layui-btn"  onclick="$('codeText').value=code.Z();">还原</button>
+	  </div>
+	</body>
+<script src="js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript">
+function $(id){return document.getElementById(id);}
+function codeZip(obj){
+	this.S=function(){
+		var code=obj.value;
+		if(!this.codeZ || this.codeZ=="")this.codeZ=code;
+	code=code.replace(/(\n|\t|\s)*/ig,'$1');
+	code=code.replace(/\n|\t|\s(\{|\}|\,|\:|\;)/ig,'$1');
+	code=code.replace(/(\{|\}|\,|\:|\;)\s/ig,'$1');
+	return code;
+}
+this.A=function(){
+	var code=this.S();
+	return code;
+} 
+this.B=function(){
+	var code=this.S();
+	code=code.replace(/(\{)/ig,' $1');
+	code=code.replace(/(\{|\;)/ig,'$1\n\t');
+	code=code.replace(/\t*(\})/ig,'$1\n');
+	code=code.replace(/(\*\/)/ig,'$1\n');
+	return code;
+}
+this.C=function(){
+	var code=this.S();
+	code=code.replace(/(\})/ig,'$1\n');
+	code=code.replace(/(\*\/)/ig,'$1\n');
+	return code;
+} 
+this.Z=function(){
+	return (this.codeZ)?this.codeZ:obj.value;
+}
+var my=this;
+obj.onkeydown=function(){
+	my.codeZ="";	
+	}
+}
+var code=new codeZip($('codeText'));
+</script>
+</html>

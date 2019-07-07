@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="../layui/images/img/zou.ico">
+<title>代码拼接工具</title>
+<link rel="stylesheet" href="../layui/css/layui.css" media="all"/>
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top:20px;"> <legend>转化前的代码</legend></fieldset><div class="layui-form-item layui-form-text"> <textarea id="tm-source1" style="height:200px;resize:none;" class="layui-textarea">
+<li class="layui-nav-item">
+    <a href="javascript:;">Service作品</a>
+        <dl class="layui-nav-child">
+          <dd><a href="#" id="IM">IM人工智能对聊机器人</a></dd>
+          <dd><a href="htmls/Qrcode.html" target="_blank" >在线生成二维码</a></dd>
+          <dd><a href="htmls/face.html" target="_blank">在线人脸识别</a></dd>
+          <dd><a href="htmls/speech.html" target="_blank">在线语音合成</a></dd>
+          <dd><a href="htmls/video.html" target="_blank">在线抓取第三方视屏</a></dd>
+          <dd><a href="#">抓取拉钩网数据生成统计报表</a></dd>
+        </dl>
+</li>
+</textarea></div><button class="layui-btn layui-btn-big layui-btn-warm btn" style="margin-left:30px;">开始转化</button><fieldset class="layui-elem-field layui-field-title" style="margin-top:20px;"> <legend>转化后的代码</legend></fieldset><div class="layui-form-item layui-form-text"> <textarea id="tm-source2" style="height:200px;resize:none;" class="layui-textarea"></textarea></div>	
+</body>
+<script type="text/javascript" src="../layui/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript" src="js/json.js" ></script>
+<script type="text/javascript">
+$( function(){$(".btn").on("click",function(){zzmtransfter.tm_transfter({tag1:$("#tm-source1"),tag2:$("#tm-source2")});});});
+</script>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>后台新闻的右边新闻页面</title>
+  <link rel="stylesheet" type="text/css" href="../css/news_manage.css">
+  <link rel="stylesheet" type="text/css" href="../css/animate.css">
+  <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+  <script type="text/javascript" src="../js/check/check.js"></script>
+  <script type="text/javascript" src="../js/check/checkdelete.js"></script>
+  <link rel="stylesheet" type="text/css" href="dialogutil/loading.css">
+  <script type="text/javascript" src="dialogutil/loading.js"></script>
+  <script type="text/javascript" src="js/htmlloading.js"></script>
+ </head>
+	
+<body>
+	<!--start zhezhao-->
+	<div id="zhezhao"></div>
+	<!--end zhezhao-->
+
+	<!--start dialog-->
+	<div id="dialog">
+		<div class="d-title">
+			<span class="dt-left">警告</span>
+			<span class="dt-right cuo">❌</span>
+		</div>
+		<div class="content">
+			<div class="wam">
+				<span class="w-content">您确定要删除</span>
+				<a href="#">《世界,你好!!》</a>
+			</div>
+			<div class="btns">
+				<a href="#" id="yes">确定</a>
+				<a href="#" class="cuo">取消</a>							
+			</div>
+		</div>
+	</div>
+	<!--end dialog-->
+	
+	<!--start xinwen -->
+	<div class="n-right">
+		<div class="r-top">
+			<span>新闻发布</span>
+		</div>
+		<div class="r-total">
+			<ul>
+				<li>
+					<a href="xwhtml/xw_add.html" class="r-add">
+						<i class="r_img r_add"></i>
+						<span>添加</span>
+					</a>
+				</li>
+				<li>
+					<a href="xwhtml/xw_edit.html">
+						<i class="r_img r_update"></i>
+						<span>编辑</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="a_del">
+						<i class="r_img r_delete"></i>
+						<span>删除</span>
+					</a>
+				</li>
+				<li>
+					<a href="xwhtml/xw_select.html">
+						<i class="r_img r_selete"></i>
+						<span>查看</span>
+					</a>
+				</li>
+				<li>
+					<input type="text" name="selete" class="serch" placeholder="请输入您要搜索的内容..."/>
+					<a href="javascript:void(0);" id="seletebtn">搜索</a>
+				</li>
+			</ul>
+		</div>
+		<div class="r-table">
+			<table>
+				<thead>
+					<tr>
+						<td class="yes"><input type="checkbox" name="yes" class="ccyes"/></td>
+						<td>编号</td>
+						<td>标题</td>
+						<td>发布者</td>
+						<td>点击数</td>
+						<td>类型</td>
+						<td>发布时间</td>
+						<td>状态</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody id="t_body">
+					<tr>
+						<td>
+							<input type="checkbox" name="yes" class="ccyes"/>
+						</td>
+						<td>001</td>
+						<td>世界，你好！！！</td>
+						<td>邹智敏</td>
+						<td>2311</td>
+						<td>传记</td>
+						<td>2017-3-21</td>
+						<td>以发布</td>
+						<td>
+							<div class="t_action">
+								<a href="#" class="a_see" title="查看"></a>
+								<a href="#" class="a_edit" title="编辑"></a>
+								<a href="#" class="a_del" title="删除"></a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="yes" class="ccyes"/>
+						</td>
+						<td>002</td>
+						<td>世界，你好！！！</td>
+						<td>邹智敏</td>
+						<td>2311</td>
+						<td>传记</td>
+						<td>2017-3-21</td>
+						<td>以发布</td>
+						<td>
+							<div class="t_action">
+								<a href="#" class="a_see" title="查看"></a>
+								<a href="#" class="a_edit" title="编辑"></a>
+								<a href="#" class="a_del" title="删除"></a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="yes" class="ccyes"/>
+						</td>
+						<td>003</td>
+						<td>世界，你好！！！</td>
+						<td>邹智敏</td>
+						<td>2311</td>
+						<td>传记</td>
+						<td>2017-3-21</td>
+						<td>以发布</td>
+						<td>
+							<div class="t_action">
+								<a href="#" class="a_see" title="查看"></a>
+								<a href="#" class="a_edit" title="编辑"></a>
+								<a href="#" class="a_del" title="删除"></a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="yes" class="ccyes"/>
+						</td>
+						<td>004</td>
+						<td>世界，你好！！！</td>
+						<td>邹智敏</td>
+						<td>2311</td>
+						<td>传记</td>
+						<td>2017-3-21</td>
+						<td>以发布</td>
+						<td>
+							<div class="t_action">
+								<a href="#" class="a_see" title="查看"></a>
+								<a href="#" class="a_edit" title="编辑"></a>
+								<a href="#" class="a_del" title="删除"></a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="yes" class="ccyes"/>
+						</td>
+						<td>005</td>
+						<td>世界，你好！！！</td>
+						<td>邹智敏</td>
+						<td>2311</td>
+						<td>传记</td>
+						<td>2017-3-21</td>
+						<td>以发布</td>
+						<td>
+							<div class="t_action">
+								<a href="#" class="a_see" title="查看"></a>
+								<a href="#" class="a_edit" title="编辑"></a>
+								<a href="#" class="a_del" title="删除"></a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="yes" class="ccyes"/>
+						</td>
+						<td>006</td>
+						<td>世界，你好！！！</td>
+						<td>邹智敏</td>
+						<td>2311</td>
+						<td>传记</td>
+						<td>2017-3-21</td>
+						<td>以发布</td>
+						<td>
+							<div class="t_action">
+								<a href="#" class="a_see" title="查看"></a>
+								<a href="#" class="a_edit" title="编辑"></a>
+								<a href="#" class="a_del" title="删除"></a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="yes" class="ccyes"/>
+						</td>
+						<td>007</td>
+						<td>世界，你好！！！</td>
+						<td>邹智敏</td>
+						<td>2311</td>
+						<td>传记</td>
+						<td>2017-3-21</td>
+						<td>以发布</td>
+						<td>
+							<div class="t_action">
+								<a href="#" class="a_see" title="查看"></a>
+								<a href="#" class="a_edit" title="编辑"></a>
+								<a href="#" class="a_del" title="删除"></a>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!--end xinwen -->
+</body>
+</html>

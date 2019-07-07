@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     <link rel="icon" href="img/zou.ico">
+    <title>熊悦武的个人博客</title>
+    <link rel="stylesheet" href="plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <link rel="stylesheet" href="build/css/app.css" media="all">
+</head>
+
+<body class="kit-theme">
+    <div class="layui-layout layui-layout-admin kit-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">个人学习笔记</div>
+            <div class="layui-logo kit-logo-mobile">X</div>
+            <ul class="layui-nav layui-layout-right kit-nav">
+                <li class="layui-nav-item"><a href="javascript:;" id="pay"><i class="layui-icon">&#xe715;</i>&nbsp;当前位置</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="img/toxiang.jpg" class="layui-nav-img">熊悦武
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" id="jbzl">基本资料</a></dd>
+                        <dd><a href="javascript:;" id="xgmm">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="javascript:;"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black kit-side">
+            <div class="layui-side-scroll">
+                <div class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true"></i></div>
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;"><i class="layui-icon">&#xe622;</i>&nbsp;<span>前端笔记</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'htmls/HtmlAdd.html',icon:'&#xe635;',title:'HTML5新增标签',id:'1'}">
+                                <i class="layui-icon">&#xe635;</i>&nbsp;<span>HTML5新增标签</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'htmls/css_reset.html',icon:'&#xe6b2;',title:'解决&nbsp;css&nbsp;冗余',id:'2'}">
+                                <i class="layui-icon">&#xe6b2;</i>&nbsp;<span>解决&nbsp;css&nbsp;冗余</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'htmls/Css_selector.html',icon:'&#xe857;',title:'css各种选择器的使用',id:'3'}">
+                                <i class="layui-icon">&#xe857;</i>&nbsp;<span>css各种选择器的使用</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'htmls/Float.html',icon:'&#xe638;',title:'float浮动的深层剖析',id:'4'}">
+                                	<i class="layui-icon">&#xe638;</i>&nbsp;<span>float浮动的深层剖析</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'htmls/position.html',icon:'&#xe617;',title:'position定位进阶',id:'5'}">
+                                <i class="layui-icon">&#xe617;</i>&nbsp;<span>position定位进阶</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'htmls/table.html',icon:'&#xe62d;',title:'table表格详解',id:'6'}">
+                                <i class="layui-icon">&#xe62d;</i>&nbsp;<span>table表格详解</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'htmls/form.html',icon:'&#xe60a;',title:'form表单及相关属性',id:'7'}">
+                                <i class="layui-icon">&#xe60a;</i>&nbsp;<span>form表单及相关属性</span></a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'htmls/MoveApp.html',icon:'&#xe60a;',title:'移动开发与适配',id:'8'}">
+                                <i class="layui-icon">&#xe60a;</i>&nbsp;<span>移动开发与适配</span></a>
+                            </dd>
+                        </dl>
+                    </li>
+                    
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><i class="layui-icon">&#xe622;</i>&nbsp;<span>后台笔记</span></a>
+                        <dl class="layui-nav-child">
+                            <dd> <a href="javascript:;" kit-target data-options="{url:'htmls/main.html',icon:'&#xe658;',title:'后台',id:'1'}">
+                            <i class="layui-icon">&#xe658;</i><span> Navbar</span></a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--start 内容区域-->
+        <div class="layui-body" id="container">
+            <div style="padding: 15px;"><i class="layui-icon">&#xe63d;</i></div>
+        </div>
+        <!--end 内容区域-->
+
+        <!--start 底部区域-->
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            2017 &copy;
+            <a href="zzmedu.imwork.net">zzmedu.imwork.net/</a> 个人笔记
+        </div>
+        <!--end 底部区域-->
+
+    </div>
+    <script src="./plugins/layui/layui.js"></script>
+    <script>
+        var message;
+        layui.config({
+            base: 'build/js/'
+        }).use(['app', 'message'], function() {
+            var app = layui.app,
+                $ = layui.jquery,
+                layer = layui.layer;
+            //将message设置为全局以便子页面调用
+            message = layui.message;
+            //主入口
+            app.set({
+                type: 'iframe'
+            }).init();
+
+            $('#pay').on('click', function() {
+                layer.open({
+                    title: "<i class='layui-icon'>&#xe715;</i>&nbsp;&nbsp;定位当前位置",
+                    type: 2,
+                    content:"htmls/map.html",
+                    area: ['700px', '450px'],
+                    shadeClose: true
+                });
+            });
+	
+			//个人资料
+            $('#jbzl').on('click', function() {
+              layer.open({
+                    title: "<i class='layui-icon'>&#xe62a;</i>&nbsp;&nbsp;个人简历",
+                    type: 2,
+                    content:"htmls/main.html",
+                    area: ['1000px', '600px'],
+                    anim: 1, //0-6的动画形式，-1不开启
+                    shadeClose: true
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

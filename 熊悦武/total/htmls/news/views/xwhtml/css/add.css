@@ -1,0 +1,118 @@
+*{margin:0;padding:0;}
+html,body{height:100%;}
+input{width:80%;height:35px;padding-left:10px;border-radius:5px;border:none;outline:none;}
+input:before{border:1px solid dodgerblue;}
+body{background:#fff;font-size:"微软雅黑";}
+p{padding-left:16px;line-height:58px;font-size:18px;color:#5a5050;}
+a{text-decoration:none;color:#000;}
+
+/*start tianjia*/
+.bg{width:100%;height:100%;background:url(../img/5.jpg) no-repeat;background-size:cover;position:fixed;z-index:-1;top:0px;left:0px;}
+.tianjia{width:1000px;background:rgba(0,0,0,0.1);margin:50px auto;border-radius:4px;
+-webkit-border-radius:4px;
+-moz-border-radius:3px;
+box-shadow:1px 1px 10px rgba(0, 0, 0, 0.5);
+-webkit-box-shadow:1px 1px 10px rgba(0, 0, 0, 0.5);
+-moz-box-shadow:1px 1px 10px rgba(0, 0, 0, 0.5);}
+   
+.tianjia .t_tilte{width:100%;height:58px;background:#45b3af;}
+.tianjia .t_tilte .p_title{height:100%;width:100px;color:#fff;float:left;}
+.tianjia .t_tilte .mymusic{width:35px;height:35px;float:right;margin:14px 23px 0 0;cursor:pointer;}
+.tianjia .t_tilte .mymusic .icon_music{display:block;width:35px;height:35px;box-shadow:0px 0px 50px #45b3af;background:url(../../../img/music/music.png) no-repeat;background-size:cover;border-radius:50%;}
+.tianjia .t_inputs{width:100%;}
+.tianjia .t_inputs .p_title{width:984px;height:65px;}
+.tianjia .t_inputs .p_title .p_select{width:81%;height:35px;border-radius:5px;border:none;outline:none;padding-left:10px;color:#8c776f;}
+.tianjia .xwedit{width:100%;}
+.tianjia .xwedit .e_title{width:100%;height:50px;text-align:center;line-height:50px;margin-top:50px;}
+.tianjia .xwedit #myedio{width:100%;height:600px;}
+.tianjia .btns{width:100%;height:65px;}
+.tianjia .btns a{display:inline-block;padding:10px 56px 10px 56px;margin:12px 0px 0px 240px;background:#848484;border-radius:5px;}
+.tianjia .btns a:hover{background:#666666;}
+/*end tianjia*/
+
+/*start input type=date优化*/
+::-webkit-datetime-edit-fields-wrapper { background-color: #eee; }
+::-webkit-datetime-edit-text { color: #4D90FE; padding: 0 .3em; }
+::-webkit-datetime-edit-year-field { color: purple; }
+::-webkit-datetime-edit-month-field { color: blue; }
+::-webkit-datetime-edit-day-field { color: green; }
+::-webkit-inner-spin-button { visibility: hidden; }
+::-webkit-calendar-picker-indicator {
+border: 1px solid #ccc;
+border-radius: 2px;
+box-shadow: inset 0 1px #fff, 0 1px #eee;
+background-color: #eee;
+background-image: -webkit-linear-gradient(top, #f0f0f0, #e6e6e6);
+color: #666;
+}
+/*end input type=date优化*/
+
+/*开始 滚动条的优化*/
+::-webkit-scrollbar{width:9px;height:6px;background:#ccc;}
+
+::-webkit-scrollbar-button{background:#e5e5e5;}
+
+::-webkit-scrollbar-track{background:#999;}
+
+::-webkit-scrollbar-track-piece{background:#ccc;}
+
+::-webkit-scrollbar-thumb{background:#999;}
+
+::-webkit-scrollbar-corner{background:#82AFFF;}
+
+::-webkit-scrollbar-resizer{background:#FF0BFF;}
+
+scrollbar{-moz-appearance:none |important;background:rbg(0,255,0); |important}
+
+scrollbarbutton{-moz-appearance:none |important;background:rbg(0,0,255); |important}
+
+scrollbarbutton:hover{-moz-appearance:none |important;background:rbg(255,0,0); |important}
+/*结束 滚动条的优化*/
+
+/*start music is animate*/
+@keyframes musickey{
+	from{
+	transform:rotate(0deg);
+	-webkit-transform:rotate(0deg);
+	-moz-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	-ms-transform:rotate(0deg);
+	}
+	to{transform:rotate(360deg);
+	-webkit-transform:rotate(360deg);
+	-moz-transform:rotate(360deg);
+	-o-transform:rotate(360deg);
+	-ms-transform:rotate(360deg);
+	}
+}
+@-webkit-keyframes musickey{
+from{
+	transform:rotate(0deg);
+	-webkit-transform:rotate(0deg);
+	-moz-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	-ms-transform:rotate(0deg);
+	}
+	to{transform:rotate(360deg);
+	-webkit-transform:rotate(360deg);
+	-moz-transform:rotate(360deg);
+	-o-transform:rotate(360deg);
+	-ms-transform:rotate(360deg);
+	}
+}
+/*end music is animate*/
+
+/*start tianjiao*/
+
+.key{
+	animation:musickey 2s infinite linear;
+
+	-webkit-animation:musickey 2s infinite linear;
+
+	-moz-animation:musickey 2s infinite linear;
+
+	-o-animation:musickey 2s infinite linear;
+
+	-ms-animation:musickey 2s infinite linear;
+}
+/*end tianjiao*/

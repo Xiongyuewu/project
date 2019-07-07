@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../layui/images/img/zou.ico">
+		<title>在线抓取数据形成统计报表</title>
+		<link rel="stylesheet" href="../layui/css/layui.css" />
+	</head>
+	<body>
+		<div class="layui-header" style="width:100%;background: #393d49;">
+			<div class="layui-logo">
+				<a href="../index.html">
+			        <img src="../layui/images/img/log.png" width="350" height="40px" style="margin-top: 10px;"/>
+			    </a>
+			</div>
+		</div>
+		<div class="layui-container" style="margin:100px auto;">
+			<div class="layui-row layui-anim layui-anim-scale">
+		      <div class="layui-col-md10">
+		      		<input type="text" name="title" id="weburl" placeholder="请输入抓取网址：https://www.lagou.com/" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+		      </div>
+		      <div class="layui-col-md2">
+		      		<button class="layui-btn layui-btn-warm" id="zqsj">抓取数据</button>
+		      </div>
+		      <div class="layui-col-md12 layui-form" style="margin-top: 20px;">
+			    <div class="layui-form-item">
+			      <div class="layui-input-inline">
+			        <select  lay-filter="options">
+			            <option value="line">线2D</option>
+			            <option value="column2d">栏2D</option>
+			            <option value="column3d">列3D</option>
+			            <option value="area2d">区域2D</option>
+			            <option value="bar2d">酒吧2D</option>
+			            <option value="bar3d">酒吧3D</option>
+			            <option value="pie2d">馅饼2D</option>
+			            <option value="pie3d">馅饼3D</option>
+			            <option value="doughnut2d">甜甜圈2D</option>
+			            <option value="doughnut3d">甜甜圈3D</option>
+			            <option value="pareto2d">帕累托2D</option>
+			            <option value="pareto3d">帕累托3D</option>
+			        </select>
+			      </div>
+			      <label class="layui-form-label">报表风格</label>
+		      </div>
+			</div>
+			<div class="layui-col-md12" style="height: 400px;">
+		      	<div id="serch"></div>
+		    </div>
+		</div>
+<script type="text/javascript" src="../layui/layui.js" ></script>
+<script type="text/javascript" src="../layui/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript" src="../layui/charts/fusioncharts.js" ></script>
+<script type="text/javascript" src="../layui/charts/fusioncharts.charts.js" ></script>
+<script type="text/javascript" src="../layui/charts/fusioncharts.theme.ocean.js" ></script>
+<script type="text/javascript" src="../layui/charts/zzmChart.js" ></script>
+<script>
+	layui.use(['form'], function(){
+		var form = layui.form; 
+		zzmChart("line");
+		form.on('select(options)', function(data){
+		  var text = data.value;
+		  zzmChart(text);
+		});  
+	}); 
+	
+	function zzmChart(text){
+		$.zzmChart({
+			target:"serch",
+			type:text,
+			data:"<chart caption='java行业工资统计报表' subcaption='注意：这只是测试数据，还不是用java爬过来的' xaxisname='岗位名称' yaxisname='对应薪资' numberprefix='$' theme='ocean'>"+
+				"    <set label='java [杭州·仓前]' value='20000-40000' />"+
+				"    <set label='Java开发工程师 [北京·苏州街]' value='15000-30000' />"+
+				"    <set label='Java开发 [北京·王府井]' value='20000-35000' />"+
+				"    <set label='Java开发 [上海·镇宁路]' value='12000-18000' />"+
+				"    <set label='JAVA开发工程师 [上海·徐家汇]' value='15000-30000' />"+
+				"    <set label='java开发工程师 [济南·高新区]' value='10000-20000' />"+
+				"    <set label='Java开发工程师 [深圳·科技园]' value='15000-30000' />"+
+				"    <set label='java开发工程师 [深圳·福田区]' value='10000-20000' />"+
+				"    <set label='Java工程师 [上海·张江]' value='15000-25000' />"+
+				"    <set label='Java开发工程师 [杭州·西兴]' value='10000-18000' />"+
+				"    <set label='java [杭州·仓前]' value='20000-40000' />"+
+				"    <set label='Java开发工程师 [南京·建邺区]' value='12000-20000' />"+
+				"</chart>"
+		});
+	};
+</script>
+</body></html>

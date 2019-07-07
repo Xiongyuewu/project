@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>瀑布流</title>
+		<style type="text/css">
+			*{margin:0;padding:0;}
+
+			img{width: 123px;}
+			
+			body{background:#f8f8f8;}
+			
+			#container{width:1000px;margin:0 auto;position: relative;}
+			
+			#container .block{width:123px;min-height:100px;padding:5px;background:#fff;float:left;
+			border-radius:3px;box-shadow: 0 0 10px #000;-moz-box-shadow: 0 0 10px #000;-webkit-box-shadow: 0 0 10px #000;}
+			
+			#container .block:hover{cursor:pointer;transform: scale(1.05);transition: .5s ease all;}
+
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="block" style="height:200px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/1.jpg" height="200px">
+			</div>
+			<div class="block" style="height:250px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/2.jpg"  height="250px">
+			</div>
+			<div class="block" style="height:220px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/3.jpg"  height="220px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/4.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:180px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/5.jpg"  height="180px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/6.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:110px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/7.jpg"  height="110px">
+			</div>
+			<div class="block" style="height:140px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/8.jpg"  height="140px">
+			</div>
+			<div class="block" style="height:200px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/1.jpg" height="200px">
+			</div>
+			<div class="block" style="height:250px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/2.jpg"  height="250px">
+			</div>
+			<div class="block" style="height:220px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/3.jpg"  height="220px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/4.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:180px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/5.jpg"  height="180px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/6.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:110px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/7.jpg"  height="110px">
+			</div>
+			<div class="block" style="height:140px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/8.jpg"  height="140px">
+			</div>
+			<div class="block" style="height:200px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/1.jpg" height="200px">
+			</div>
+			<div class="block" style="height:250px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/2.jpg"  height="250px">
+			</div>
+			<div class="block" style="height:220px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/3.jpg"  height="220px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/4.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:180px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/5.jpg"  height="180px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/6.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:110px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/7.jpg"  height="110px">
+			</div>
+			<div class="block" style="height:140px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/8.jpg"  height="140px">
+			</div>
+			<div class="block" style="height:200px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/1.jpg" height="200px">
+			</div>
+			<div class="block" style="height:250px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/2.jpg"  height="250px">
+			</div>
+			<div class="block" style="height:220px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/3.jpg"  height="220px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/4.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:180px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/5.jpg"  height="180px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/6.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:110px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/7.jpg"  height="110px">
+			</div>
+			<div class="block" style="height:140px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/8.jpg"  height="140px">
+			</div>
+			<div class="block" style="height:200px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/1.jpg" height="200px">
+			</div>
+			<div class="block" style="height:250px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/2.jpg"  height="250px">
+			</div>
+			<div class="block" style="height:220px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/3.jpg"  height="220px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/4.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:180px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/5.jpg"  height="180px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/6.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:110px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/7.jpg"  height="110px">
+			</div>
+			<div class="block" style="height:140px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/8.jpg"  height="140px">
+			</div>
+			<div class="block" style="height:200px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/1.jpg" height="200px">
+			</div>
+			<div class="block" style="height:250px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/2.jpg"  height="250px">
+			</div>
+			<div class="block" style="height:220px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/3.jpg"  height="220px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/4.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:180px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/5.jpg"  height="180px">
+			</div>
+			<div class="block" style="height:150px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/6.jpg"  height="150px">
+			</div>
+			<div class="block" style="height:110px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/7.jpg"  height="110px">
+			</div>
+			<div class="block" style="height:140px;">
+				<img class="lazy" src="img/loading.gif" data-src="img/8.jpg"  height="140px">
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="js/blocksit.js"></script>
+		<script type="text/javascript"> 
+			$(function(){
+				loadimg();
+				$('#container').BlocksIt({
+					numOfCol: 7,
+				});
+			});
+			function loadimg(){
+				var imgDoms = document.getElementsByTagName("img");
+				//浏览器窗口的当前高度
+				var ctop = window.innerHeight || document.documentElement.clientHeight;
+				//滚动条的当前移动的高度
+				var stop = document.body.scrollTop || document.documentElement.scrollTop;
+				for(var i=0,len=imgDoms.length;i<len;i++){
+					//if(!imgDoms[i].mark && getTop(imgDoms[i]) < (ctop+stop)){//图片在底部只有一般默认不加载
+						imgDoms[i].src = imgDoms[i].getAttribute("data-src");
+						imgDoms[i].mark = true;
+					//}
+				};
+			}
+			function getTop(dom){
+				var ctop = 0;
+				while(dom){
+					ctop += dom.offsetTop;//拿到当前对象距离浏览器头部的距离
+					dom = dom.offsetParent;//把dom对象设置成父级标签
+				}
+				return ctop;
+			}
+		</script> 
+	</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>人脸识别</title>
+		<link rel="icon" href="../layui/images/img/zou.ico">
+		<link rel="stylesheet" href="../layui/css/layui.css" />
+		<style type="text/css">
+			html,body{height:100%;background-color: #ededed;}
+			.layui-col-md4{height:500px;}
+			.layui-col-md8{height:500px;}
+			#face{width: 400px;height: 300px;margin: 50px auto;position:relative;}
+			#face video{width: 400px;height: 300px;opacity:0.9;overflow:hidden;position: absolute;z-index: 1;border-radius: 10px}
+			#face .an_items{width:300px;height:300px;left:50px;position:absolute;z-index: 2;}
+			#face .an_1{background:url(img/an_1.png) no-repeat center center/cover;-webkit-animation:zhuan 5s infinite ease alternate;animation:zhuan 5s infinite ease alternate;}
+			#face .an_2{background:url(img/an_2.png) no-repeat center center/cover;-webkit-animation:zhuan 2s infinite ease-in-out;animation:zhuan 2s infinite ease-in-out;}
+			#face .an_3{background:url(img/an_3.png) no-repeat center center/cover;-webkit-animation:zhuan 2s 1s infinite ease alternate;animation:zhuan 2s 1s infinite ease alternate;}
+			@webkit-keyframes zhuan{from{transform:rotate(0);}
+			to{transform:rotate(360deg);}
+			}
+			@keyframes zhuan{from{transform:rotate(0);}
+			to{transform:rotate(360deg);}
+			}
+		 	.progress_warp{width:300px;height:300px;border-radius:50%;position:absolute;z-index: 2;top:0;left:0;right:0;bottom:0;margin:auto;}
+		 	.progress_box{width:100%;height:100%;}
+		 	.progress_box div{position:absolute;left:49.55%;top:25%;-webkit-transform-origin:center 650%;width:2px;height:12px;background:#7698b2;opacity:0;}
+		 	.progress_content{width:95px;height:50px;top:123px;left:102px;position: absolute;z-index: 3;text-align: center;color: #393d49;}
+		 	.progress_content p{font-size:20px;}
+		 	.progress_content span{font-size:12px;}
+		 
+		 .layui-timeline{position:absolute;left: 80px;top:80px;}
+		 .layui-timeline-axis{background-color: #ededed;color: #393d49;}
+		</style>
+	</head>
+	<body>
+		<div class="layui-header" style="background: #393d49;">
+	        <div class="layui-logo">
+	        	<a href="../index.html">
+	                <img src="../layui/images/img/log.png" width="350" height="40px" style="margin-top: 10px;"/>
+	            </a>
+	        </div>
+	    </div>
+		<div class="layui-container">  
+		  <div class="layui-row layui-col-space30">
+		  	<div class="layui-col-md4">
+				<ul class="layui-timeline">
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">姓名：邹智敏</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">年龄：22</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">性别：男</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">表情：微笑</div>
+				    </div>
+				  </li>
+				  <li class="layui-timeline-item">
+				    <i class="layui-icon layui-timeline-axis"></i>
+				    <div class="layui-timeline-content layui-text">
+				      <div class="layui-timeline-title">眼镜：无</div>
+				    </div>
+				  </li>
+				</ul>
+		   	</div>
+		    <div class="layui-col-md8">
+		    	<div style="width: 98%;height: 96%;">
+		    		<div id="face">
+						<div class="an_items an_1"></div>
+						<div class="an_items an_2"></div>
+						<div class="an_items an_3"></div>
+		    			<div class="progress_warp">
+							<div class="progress_box"></div>
+							<div class="progress_content">
+								<p>100%</p>
+								<span>正在开启摄像头...</span>
+							</div>
+						</div>
+						<video id="video" autoplay="autoplay"></video>
+						<audio id="audio" autoplay="" src=""></audio>
+						<canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+					</div>
+				    <button class="layui-btn layui-btn-warm" id="startPat" style="margin: 45px auto;display: none;" onclick="startPat()">识别人脸</button>
+		    	</div>
+		    </div>
+		    <div class="layui-col-md12"></div>
+		  </div>
+		</div>
+<script type="text/javascript" src="../layui/layui.js" ></script>
+<script type="text/javascript">
+	var progress_warp = document.querySelector(".progress_warp");
+	var progress_box = document.querySelector(".progress_box");
+	var progress_per = document.querySelector(".progress_content p");
+	var progress_span = document.querySelector(".progress_content span");
+	var layui_btn = document.querySelector(".layui-btn");
+	var face = document.getElementById("face");
+	var video = document.getElementById("video");
+	var audio = document.getElementById("audio");
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	//调用创建元素的方法
+	createEl("div", 50, function(el) {
+		progress_box.appendChild(el);
+	});
+
+	//创建50个进度条的div元素
+	function createEl(element, count, fn) {
+		var elArr = [];
+		for(var i = 0; i < count; i++) {
+			var el = document.createElement(element);
+			el.style.transform = "rotate(" + 360 / count * i + "deg)";
+			elArr.push(el);
+			fn && fn(el);
+		}
+		return elArr;
+	};
+	
+	//创建进度条的样式
+	var styl = document.createElement("style");
+	document.head.appendChild(styl);
+
+	//进度条当前进度
+	function progress_Controller(progress) {
+		var per = Math.floor(progress_box.children.length * progress / 100);
+		progress_per.innerText = progress + "%";
+		styl.innerHTML = ".progress_warp div" +
+						 ":nth-of-type(n)" +
+						 ":nth-of-type(-n+" + per + "){" +
+						 "	opacity:1;" +
+						 "}";
+	}
+	
+	//用定时器动态加载div
+	var progress = 0;
+	var timer = setInterval(function() {
+		progress++;
+		if(progress > 100) {
+			showface();
+			layui_btn.style.display = "block";
+			progress_per.innerText = "";
+			progress_span.innerText = "";
+			audio.src=str("摄像头开启成功");
+			progress = 0;
+			clearInterval(timer);
+			return false;
+		}
+		progress_Controller(progress);
+	}, 50);
+	
+	//开始验证浏览器可不可以开启摄像头
+	function showface(){
+	    navigator.getUserMedia  = navigator.getUserMedia ||  
+	                      navigator.webkitGetUserMedia ||  
+	                      navigator.mozGetUserMedia ||  
+	                      navigator.msGetUserMedia;  
+	    navigator.getUserMedia({video:true}, gotStream, noStream);  
+	}
+     
+     //摄像头开启成功
+    function gotStream(stream) {  
+        video.src = URL.createObjectURL(stream);  
+        video.onerror = function () {  
+          stream.stop();  
+        };  
+        stream.onended = noStream;  
+        video.onloadedmetadata = function () {  
+        	console.log("摄像头打开成功！");
+        };  
+    }
+    
+    //摄像头开启失败
+    function noStream(err) {  
+        alert("由于您的有浏览器的安全级别太高了，导致程序无法开启摄像头！！");  
+  	}
+    
+    //语音播报
+    function str(text){
+		url = "http://tsn.baidu.com/text2audio?tex="+text+"&lan=zh&cuid=123456&ctp=1&tok=24.5845942c8b0b8c9d3262dbdff0e05a42.2592000.1506843323.282335-9687132&per=4";
+		return url;
+	}
+    
+    //人脸识别按钮
+    function startPat() {
+		layui.use('layer', function(){
+		  	layer.tips('由于您长的太帅，服务器都炸了 ^ _ ^ ！！', "#startPat",{
+		  		tips: [1, '#13c86d'],
+				time: 4000
+		  	});
+		});
+	};
+</script>
+	</body>
+</html>

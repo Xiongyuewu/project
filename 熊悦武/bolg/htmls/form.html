@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定位进阶</title>
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+		<style type="text/css">
+	    	div{width:98%;margin:1% 1%;}
+	    </style>
+	</head>
+	<body>
+		<div>
+			 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+		        <legend>form表单及相关属性</legend>
+		    </fieldset>
+		    
+			  <blockquote class="layui-elem-quote">HTML5 - Input 输入类型</blockquote>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">text普通的文本输入框</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">password普通的密码输入框</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">email类型用于应该包含 e-mail 地址的输入域。在提交表单时，会自动验证 email 域的值实例：E-mail:&lt;input type="email" name="user_email" /&gt;</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">url 类型用于应该包含 URL 地址的输入域。在提交表单时，会自动验证 url 域的值。实例page：&lt;input type="url" name="url" /&gt;</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">number 类型用于应该包含数值的输入域。您还能够设定对所接受的数字的限定：实例Points: &lt;input type="number" name="points" min="1" max="10" /&gt;</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">range 类型用于应该包含一定范围内数字值的输入域。range 类型显示为滑动条。您还能够设定对所接受的数字的限定：实例&lt;input type="number" name="points" min="1" max="10" /&gt;</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">Date HTML5 拥有多个可供选取日期和时间的新输入类型：date - 选取日、月、年；month - 选取月、年；week - 选取周和年；time - 选取时间（小时和分钟）；datetime - 选取时间、日、月、年（UTC 时间）；datetime-local - 选取时间、日、月、年（本地时间）/&gt;</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">search 类型用于搜索域，比如站点搜索或 Google 搜索。search 域显示为常规的文本域。</h5>
+			    </div>
+			  </li>
+			  
+			  <blockquote class="layui-elem-quote">HTML5 表单元素</blockquote>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">datalist 元素规定输入域的选项列表。列表是通过 datalist 内的 option 元素创建的。如需把 datalist 绑定到输入域，请用输入域的 list 属性引用 datalist 的 id</h5>
+			      <ul>
+			        <li>
+						实例<br>
+						<input type="url" list="url_list" name="link" /> 
+						<datalist id="url_list"> 
+							<option label="W5School" value="http://www.W5School.com.cn" /> 
+							<option label="Google" value="http://www.google.com" /> 
+							<option label="Microsoft" value="http://www.microsoft.com" /> 
+						</datalist>
+			        </li>
+			        <li>
+			        	示例代码：<br> 
+						<br>&lt;input type="url" list="url_list" name="link" /&gt;
+						<br>&lt;datalist id="url_list"&gt;
+						<br>&lt;option label="W5School" value="http://www.W5School.com.cn" /&gt;
+						<br>&lt;option label="Google" value="http://www.google.com" /&gt;
+						<br>&lt;option label="Microsoft" value="http://www.microsoft.com" /&gt;
+						<br>&lt;/datalist&gt;
+			        </li>
+			      </ul>
+			    </div>
+			  </li>
+			  
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">keygen 元素的作用是提供一种验证用户的可靠方法。当提交表单时，会生成两个键，一个是私钥，一个公钥。私钥（private key）存储于客户端，公钥（public key）则被发送到服务器。公钥可用于之后验证用户的客户端证书,目前，浏览器对此元素的糟糕的支持度不足以使其成为一种有用的安全标准</h5>
+			      <ul>
+			      	<li>
+			      		实例：<br>
+						<form action="" method="get">
+							Username: <input type="text" name="usr_name" />
+							Encryption: <keygen name="security" />
+							<input type="submit"/>
+						</form>
+			      	</li>
+			        <li>
+			        	代码示例：<br>
+						<br>&lt;form action="demo_form.asp" method="get"&gt;
+							<br>Username: &lt;input type="text" name="usr_name" /&gt;
+							<br>Encryption: &lt;keygen name="security" /&gt;
+							<br>&lt;input type="submit" /&gt;
+						<br>&lt;/form&gt;
+			        </li>
+			   	  </ul>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">output 元素；output 元素用于不同类型的输出，比如计算或脚本输出</h5>
+			      <ul>
+			        <li>
+			        	代码示例：<br>
+						&lt;output id="result" onforminput="resCalc()"&gt;&lt;/output&gt;
+			        </li>
+			   	  </ul>
+			    </div>
+			  </li>
+			  
+			  <blockquote class="layui-elem-quote">HTML5 的新的表单属性</blockquote>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">autocomplete 属性；autocomplete 属性规定 form 或 input 域应该拥有自动完成功能。</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">multiple 属性；multiple 属性规定输入域中可选择多个值。多用于多文件上传</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title">autofocus 属性；autofocus 属性规定在页面加载时，域自动地获得焦点。</h5>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h5 class="layui-timeline-title"> required 属性；required 属性规定必须在提交之前填写输入域（不能为空）。</h5>
+			    </div>
+			  </li>
+		</div>
+	</body>
+</html>

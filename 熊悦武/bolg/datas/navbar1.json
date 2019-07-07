@@ -1,0 +1,27 @@
+[{
+    "id": "1",
+    "title": "基本元素",
+    "icon": "fa-cubes",
+    "spread": true,
+    "children": [{
+        "id": "1",
+        "title": "表格",
+        "icon": "&#xe6c6;",
+        "url": "table1.html"
+    }, {
+        "id": "2",
+        "title": "表格",
+        "icon": "&#xe63c;",
+        "url": "table1.html"
+    }, {
+        "id": "5",
+        "title": "表单",
+        "icon": "&#xe63c;",
+        "url": "form.html"
+    },{
+        "id": "3",
+        "title": "百度一下",
+        "icon": "&#xe658;",
+        "url": "https://www.baidu.com"
+    }]
+}]

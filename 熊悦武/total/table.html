@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格页面</title>
+	    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+			.table1{width:98%;height:250px;border: 1px solid #ededed;margin:1% 1%;text-align: center;}
+		    span{display:inline-block;margin:10px 0 0 10px;font-weight:bold;}
+		</style>
+	</head>
+	<body>
+		<span>普通表格</span>
+		<div class="table1 table-responsive">
+			<table class="table">
+			 	<thead>
+			 		<tr>
+			 			<td>#</td>
+			 			<td>姓名</td>
+			 			<td>性别</td>
+			 			<td>年龄</td>
+			 			<td>人脸是否检测</td>
+			 			<td>体检次数</td>
+			 			<td>是否结婚</td>
+			 			<td>是否是党员</td>
+			 			<td>状态</td>
+			 			<td>操作</td>
+			 		</tr>
+			 	</thead>
+			 	<tbody>
+			 		<tr>
+			 			<td>00001</td>
+			 			<td>邹智敏</td>
+			 			<td>男</td>
+			 			<td>22</td>
+			 			<td>是</td>
+			 			<td>5</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00002</td>
+			 			<td>蔡旺</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>3</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00003</td>
+			 			<td>熊跃武</td>
+			 			<td>男</td>
+			 			<td>28</td>
+			 			<td>是</td>
+			 			<td>1</td>
+			 			<td>是</td>
+			 			<td>是</td>
+			 			<td>异常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00004</td>
+			 			<td>周建宇</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>6</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 	</tbody>
+			</table>
+		</div>
+		<span>条纹状表格</span>
+		<div class="table1 table-responsive">
+			<table class="table table-striped">
+			 	<thead>
+			 		<tr>
+			 			<td>#</td>
+			 			<td>姓名</td>
+			 			<td>性别</td>
+			 			<td>年龄</td>
+			 			<td>人脸是否检测</td>
+			 			<td>体检次数</td>
+			 			<td>是否结婚</td>
+			 			<td>是否是党员</td>
+			 			<td>状态</td>
+			 			<td>操作</td>
+			 		</tr>
+			 	</thead>
+			 	<tbody>
+			 		<tr>
+			 			<td>00001</td>
+			 			<td>邹智敏</td>
+			 			<td>男</td>
+			 			<td>22</td>
+			 			<td>是</td>
+			 			<td>5</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00002</td>
+			 			<td>蔡旺</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>3</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00003</td>
+			 			<td>熊跃武</td>
+			 			<td>男</td>
+			 			<td>28</td>
+			 			<td>是</td>
+			 			<td>1</td>
+			 			<td>是</td>
+			 			<td>是</td>
+			 			<td>异常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00004</td>
+			 			<td>周建宇</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>6</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 	</tbody>
+			</table>
+		</div>
+		<span>带边框的表格</span>
+		<div class="table1 table-responsive">
+			<table class="table table-bordered">
+			 	<thead>
+			 		<tr>
+			 			<td>#</td>
+			 			<td>姓名</td>
+			 			<td>性别</td>
+			 			<td>年龄</td>
+			 			<td>人脸是否检测</td>
+			 			<td>体检次数</td>
+			 			<td>是否结婚</td>
+			 			<td>是否是党员</td>
+			 			<td>状态</td>
+			 			<td>操作</td>
+			 		</tr>
+			 	</thead>
+			 	<tbody>
+			 		<tr>
+			 			<td>00001</td>
+			 			<td>邹智敏</td>
+			 			<td>男</td>
+			 			<td>22</td>
+			 			<td>是</td>
+			 			<td>5</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00002</td>
+			 			<td>蔡旺</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>3</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00003</td>
+			 			<td>熊跃武</td>
+			 			<td>男</td>
+			 			<td>28</td>
+			 			<td>是</td>
+			 			<td>1</td>
+			 			<td>是</td>
+			 			<td>是</td>
+			 			<td>异常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00004</td>
+			 			<td>周建宇</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>6</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 	</tbody>
+			</table>
+		</div>
+		<span>鼠标悬停</span>
+		<div class="table1 table-responsive">
+			<table class="table table-hover">
+			 	<thead>
+			 		<tr>
+			 			<td>#</td>
+			 			<td>姓名</td>
+			 			<td>性别</td>
+			 			<td>年龄</td>
+			 			<td>人脸是否检测</td>
+			 			<td>体检次数</td>
+			 			<td>是否结婚</td>
+			 			<td>是否是党员</td>
+			 			<td>状态</td>
+			 			<td>操作</td>
+			 		</tr>
+			 	</thead>
+			 	<tbody>
+			 		<tr>
+			 			<td>00001</td>
+			 			<td>邹智敏</td>
+			 			<td>男</td>
+			 			<td>22</td>
+			 			<td>是</td>
+			 			<td>5</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00002</td>
+			 			<td>蔡旺</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>3</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00003</td>
+			 			<td>熊跃武</td>
+			 			<td>男</td>
+			 			<td>28</td>
+			 			<td>是</td>
+			 			<td>1</td>
+			 			<td>是</td>
+			 			<td>是</td>
+			 			<td>异常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00004</td>
+			 			<td>周建宇</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>6</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 	</tbody>
+			</table>
+		</div>
+		<span>紧缩表格</span>
+		<div class="table1 table-responsive">
+			<table class="table table-condensed">
+			 	<thead>
+			 		<tr>
+			 			<td>#</td>
+			 			<td>姓名</td>
+			 			<td>性别</td>
+			 			<td>年龄</td>
+			 			<td>人脸是否检测</td>
+			 			<td>体检次数</td>
+			 			<td>是否结婚</td>
+			 			<td>是否是党员</td>
+			 			<td>状态</td>
+			 			<td>操作</td>
+			 		</tr>
+			 	</thead>
+			 	<tbody>
+			 		<tr>
+			 			<td>00001</td>
+			 			<td>邹智敏</td>
+			 			<td>男</td>
+			 			<td>22</td>
+			 			<td>是</td>
+			 			<td>5</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00002</td>
+			 			<td>蔡旺</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>3</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00003</td>
+			 			<td>熊跃武</td>
+			 			<td>男</td>
+			 			<td>28</td>
+			 			<td>是</td>
+			 			<td>1</td>
+			 			<td>是</td>
+			 			<td>是</td>
+			 			<td>异常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td>00004</td>
+			 			<td>周建宇</td>
+			 			<td>男</td>
+			 			<td>24</td>
+			 			<td>是</td>
+			 			<td>6</td>
+			 			<td>否</td>
+			 			<td>否</td>
+			 			<td>正常</td>
+			 			<td>
+			 				<a href="javascript:alert('新增');" class="tn btn-default disabled" title="新增"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('删除');" class="tn btn-default disabled" title="删除"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('修改');" class="tn btn-default disabled" title="修改"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+			 				<a href="javascript:alert('查询');" class="tn btn-default disabled" title="查询"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+			 			</td>
+			 		</tr>
+			 	</tbody>
+			</table>
+		</div>
+	</body>
+</html>

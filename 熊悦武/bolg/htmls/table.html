@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人简历</title>
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+		   <style type="text/css">
+		    	div{width:98%;margin:1% 1%;}
+		    	div span{padding-left: 18px;}
+		  </style>
+	</head>
+	<body>
+	    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+	        <legend>HTML表格基础详解</legend>
+	    </fieldset>
+		<div>
+			<span>
+				在现在 div 大行其道的时代，table 这个标签似乎很少被人提及，到处都是 div+css 布局的书以及博客文章，但其实 table 以及连带的其他表格标签依然在网页中占很重要的地位，特别是后台展示数据的时候表格运用是否熟练就显得很重要，一个清爽简约的表格能够把繁杂的数据表现得很有条理，虽然 div 布局也可以做到，但是总没有表格来得方便。平时也经常接触到表格，现在总结一下表格的一些属性和样式，以及学习构思一些表格的样式，以便以后不时之需。
+			</span>
+			<blockquote class="layui-elem-quote" style="margin-top:20px ;">标签</blockquote>
+			<pre class="layui-code" lay-title="table标签" lay-skin="notepad" lay-encode="true">
+				<table>/*table定义 HTML 表格*/
+					<caption>我是表格标题</caption>/*caption元素定义表格标题，必须紧随 table 标签之后。只能对每个表格定义一个标题，默认居中与表格之上*/
+					<thead>/*thead标签定义表格的表头*/
+						<th>我是头部</th>/*th元素定义表头*/
+					</thead> 
+					<tbody>/*tbody标签表格主体（正文）*/
+						<tr>/*tr元素定义表格行
+							<td>您好....</td>/*td元素定义表格单元*/
+						</tr> 
+					</tbody> 
+					<tfoot>/*tfoot标签定义表格的页脚（脚注或表注）*/
+							我是页脚
+					</tfoot>
+				</table> 
+			</pre>
+			
+			<blockquote class="layui-elem-quote" style="margin-top:20px ;">跨行和跨列</blockquote>
+			<pre class="layui-code" lay-title="table标签" lay-skin="notepad" lay-encode="true">
+				nowrap：规定表格单元格中的内容不换行。用 white-space: nowrap 代替
+				colspan：规定单元格可横跨的列数。比较常用，相当于 word 中的合并横向的单元格。colspan="3"//表示跨列了3个单元格
+				rowspan：规定单元格可横跨的行数。比较常用，相当于 word 中的合并垂直方向的单元格。rowspan="3"//表示跨行了3个单元格
+			</pre>
+			<blockquote class="layui-elem-quote" style="margin-top:20px ;">table 实例：</blockquote>
+			<table class="layui-table" lay-size="sm" style="text-align: center;">
+			  <tbody>
+			    <tr>
+			      <td rowspan="4">基<br>本<br>情<br>况</td>
+			      <td>姓名</td>
+			      <td>邹智敏</td>
+			      <td>性别</td>
+			      <td>男</td>
+			      <td>民族</td>
+			      <td>汉族</td>
+			      <td rowspan="5"><img alt="图片加载中..." src="../img/toxiang.jpg"></td>
+			    </tr>
+			    <tr>
+			      <td>出生年月</td>
+			      <td>1996年 08 月 03 日</td>
+			      <td>政治面貌</td>
+			      <td>共青团员</td>
+			      <td>健康状况</td>
+			      <td>良好</td>
+			    </tr>
+			    <tr>
+			      <td>生源地</td>
+			      <td colspan="3">江西省遂川县</td>
+			      <td>邮政编码</td>
+			      <td>343900</td>
+			    </tr>
+			    <tr>
+			      <td>家庭住址</td>
+			      <td colspan="3">江西省吉安市遂川县泉江镇南坪42号</td>
+			      <td>家庭电话</td>
+			      <td>159-7964-2337</td>
+			    </tr>
+			    <tr>
+			      <td rowspan="3">教<br>育<br>背<br>景</td>
+			      <td>所在院系</td>
+			      <td colspan="3">信息工程学院</td>
+			      <td>入学年月</td>
+			      <td>2015年9月</td>
+			    </tr>
+			    <tr>
+			      <td>专业</td>
+			      <td>软件技术</td>
+			      <td>学历</td>
+			      <td>专科</td>
+			      <td>学位</td>
+			      <td colspan="2">无</td>
+			    </tr>
+			    <tr>
+			      <td>学号</td>
+			      <td>150628120442</td>
+			      <td>培养方式</td>
+			      <td>全日制</td>
+			      <td>毕业年月</td>
+			      <td colspan="2">2018 年 7月</td>
+			    </tr>
+			    <tr>
+			      <td rowspan="2">联<br>系<br>方<br>式</td>
+			      <td>联系地址</td>
+			      <td colspan="3">江西省南昌县紫阳大道 338 号</td>
+			      <td>邮政编码</td>
+			      <td colspan="2">330095</td>
+			    </tr>
+			    <tr>
+			      <td>E-mail&nbsp;地址</td>
+			      <td>1596762965@qq.com</td>
+			      <td colspan="3">江西省南昌县紫阳大道 338 号</td>
+			      <td>联系电话</td>
+			      <td colspan="2">137-6628-3113</td>
+			    </tr>
+			    <tr>
+			      <td rowspan="5">综<br>合<br>技<br>能</td>
+			      <td colspan="7">
+			      	熟悉掌握：
+			      			①office办公软件；<br>
+			      			②后端软件：Myeclipse、Intellij IDEA;<br>
+			      			③前端软件：sublime text3、Hbuilder、EditPlus;<br>
+			      			④数据库软件：Navicat for MySQL、sqlog、PLSQL、oracle数据库自带的管理软件<p>
+			      	熟练掌握专业知识：HTML5、Css3、js、JQuery、bootstrap、layui、javaSE、javaEE、MySQL/oracle数据库相关知识、spring、springMVC、Mybatis、Shiro、Maven、svn
+			      </td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	<script type="text/javascript" src="../plugins/layui/layui.js" ></script>
+	<script>
+		layui.use('code', function(){ //加载code模块
+		     layui.code({
+		     	about: false
+		     }); //引用code方法
+		});
+	</script>
+</body></html>

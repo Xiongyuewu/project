@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定位进阶</title>
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all">
+		<style type="text/css">
+	    	div{width:98%;margin:1% 1%;}
+	    </style>
+	</head>
+	<body>
+		<div>
+			 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+		        <legend>定位（position）的种类</legend>
+		    </fieldset>
+			<ul class="layui-timeline">
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h3 class="layui-timeline-title">position: absolute</h3>
+			      <p>绝对定位（Absolute Positioning
+			      	<p/>绝对定位的元素会完全地从常规文档流中脱离。对于包围它的元素而言，它会将该绝对定位元素视为不存在。
+			        <p/>就好像 display 属性被设为 none 一样。如果你想要保持它所占有的位置而不被其他元素所填充，那么你需要使用其他的定位方式。
+			        <p/>你可以通过 top, right, bottom, 和 left 四个属性来设置绝对定位元素的位置。
+			        <p/>但你通常只会设置它们其中的两个，top 或者 bottom，以及 left 或者 right。默认地它们的值都为 auto。<i class="layui-icon"></i>
+			      </p>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h3 class="layui-timeline-title">position: relative</h3>
+			      <p>相对定位（Relative Positioning）</p>
+			      <p/>相对定位的元素也是根据 top, right, bottom, 和 left 四个属性来决定自己的位置的。
+				  <p/>但只是相对于它们原来所处于的位置进行移动。在某种意义上来说，为元素设置相对定位和为元素添加 margin 有点相似，但也有一个重要的区别。
+				  <p/>区别就是在围绕在相对定位元素附近的元素会忽略相对定位元素的移动。
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h3 class="layui-timeline-title">固定定位（Fixed Positioning）</h3>
+			      <p>
+				    <br /> 固定定位的行为类似于绝对定位，但也有一些不同的地方。
+	
+					<br />首先，固定定位总是相对于浏览器窗口来进行定位的，并且通过哪些属性的 top, right, bottom, 和 left 属性来决定其位置。它抛弃了它的父元素，它就是定位中表现地有点儿反叛。。
+					
+					<br />第二个不同点是其在名字上是继承的。固定定位的元素是固定的。它们并不随着页面的滚动而移动。你可以告诉元素它所处的位置并永远不再移动。噢~好像还挺乖巧的。
+					
+					<br />在某种意义上说固定定位元素有点儿类似固定的背景图片，只不过它的外层容器块总是浏览器窗口罢了。如果你在 body 中设置一个背景图片那么它与一个固定定位的元素的行为时非常像的，只不过在位置上的精度会略少一些。
+					
+					<br />背景图片也不能改变其在第三个维度的大小，也因而带来了 z-index 属性。
+			      </p>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h3 class="layui-timeline-title">position: static</h3>
+			      <p>默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。</p>
+			    </div>
+			  </li>
+			  <li class="layui-timeline-item">
+			    <i class="layui-icon layui-timeline-axis"></i>
+			    <div class="layui-timeline-content layui-text">
+			      <h3 class="layui-timeline-title">position: inherit</h3>
+			      <p>规定应该从父元素继承 position 属性的值。</p>
+			    </div>
+			  </li>
+			</ul>  
+		</div>
+	</body>
+</html>
