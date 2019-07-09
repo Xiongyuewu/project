@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>知识管理 后台管理系统</title>
+  <link rel="stylesheet" href="layui/css/layui.css">
+  <style type="text/css">
+  </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">学习管理系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="img/logn.png" class="layui-nav-img">
+          胡歌
+        </a>
+        <dl class="layui-nav-child">
+                    <dd><a class="personal" id="xgtxl" >修改头像</a></dd>
+                    <dd><a class="personal" id="jbjj">基本简介</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退了</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">css修饰</a>
+          <dl class="layui-nav-child">
+            <dd><a href="#" id="actortype">角色类型管理</a></dd>
+            <dd><a href="#" id="css">css</a></dd>
+             <dd><a href="#" id="sjz">时间轴</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">html超文本管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">script管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+             <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">云市场</a></li>
+        <li class="layui-nav-item"><a href="">发布商品</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">内容主体区域</div>
+  </div>
+  
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © layui.com - 底部固定区域
+  </div>
+</div>
+<script src="layui/layui.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+ <script>
+ $(function(){
+			html5s("actortype");
+			$("#actortype").on("click",function(){
+					html5s("actortype");
+			});
+			html5s("css");
+			$("#css").on("click",function(){
+					html5s("css");
+			});
+			html5s("sjz");
+			$("#sjz").on("click",function(){
+					html5s("sjz");
+			});
+		});
+	function html5s(html){
+		$(".layui-body").empty();
+		$(".layui-body").append("<iframe src='pages/"+html+".html' frameborder='0' border='0' scrolling='no' height='1000px' width='100%'></iframe>")
+	}
+        var message;
+            message = layui.message;
+            //主入口
+            $('#jbzl').on('click', function() {
+               //示范一个基本资料
+                layer.open({
+                  type: 1
+                  ,title: false //不显示标题栏
+                  ,closeBtn:false
+                  ,area: '300px;'
+                  ,shade: 0.8
+                  ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                  ,resize:true
+                  ,btn: ['编辑资料', '关闭资料']
+                  ,btnAlign: 'c'
+                  ,moveType: 1 //拖拽模式，0或者1
+                  ,content: "<div style=\"padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;\">"+
+                            "      姓名：熊悦武"+
+                            "</div>"
+                  ,success: function(layero){
+                    var btn = layero.find('.layui-layer-btn');
+                    btn.find('.layui-layer-btn0').attr({
+                      href: 'javascript:void(0)'
+                      
+                    });
+                  }
+                });
+        });
+    </script>
+
+<script>
+
+//JavaScript代码区域
+layui.use(['element','layer'], function(){
+  //头像资料
+    $('#xgtxl').on('click', function() {
+          layer.open({
+                    title: "<i class='layui-icon'>&#xe62a;</i>&nbsp;&nbsp;个人简历",
+                    type: 2,
+                    content:"portrait.html",
+                    area: ['1000px', '600px'],
+                    anim: 1, //0-6的动画形式，-1不开启
+                    shadeClose: true
+                });
+            });
+            
+       //基本简介
+       
+       $('#jbjj').on('click', function() {
+          layer.open({
+                     type: 1
+        ,title: false //不显示标题栏
+        ,closeBtn: false
+        ,area: '300px;'
+        ,shade: 0.8
+        ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+        ,btn: ['围观', '关闭']
+        ,btnAlign: 'c'
+        ,moveType: 1 //拖拽模式，0或者1
+        ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">你知道吗？亲！<br>熊悦武<br><br>我们此后的征途是星辰大海 ^_^</div>'
+        ,success: function(layero){
+          var btn = layero.find('.layui-layer-btn');
+          btn.find('.layui-layer-btn0').attr({
+            href: 'http://www.layui.com/'
+            ,target: '_blank'
+          });
+        }
+                });
+            });
+});
+</script>
+
+
+</body>
+
+
+
+</html>
